@@ -2,17 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function Navbar() {
+
+    //TODO: make a function for the Sign out button's OnClick
+
     return (
         <nav>
-            <span>Generic Backupy</span>
-            <ul>
-                <li>
-                    <Link to="/">Home</Link>
-                </li>
-                <li>
-                    <Link to="/login">Login</Link>
-                </li>
-            </ul>
+            <Link to="/">Generic Backupy</Link>
+            <button>Sign out</button>
         </nav>
     );
 };

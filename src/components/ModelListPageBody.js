@@ -5,15 +5,6 @@ import { Link } from "react-router-dom";
 // array of Objects: items (each object has string displayName and string path)
 
 function ModelListPageBody(props) {
-    const Rows = [];
-    for (let i=0; i < props.items.length; i++) {
-        Rows.push(
-            <li key={i}>
-                <Link to={"/" + props.items[i].path}>{props.items[i].displayName}</Link>
-            </li>
-        );
-    }
-
     return (
         <>
             <ul>

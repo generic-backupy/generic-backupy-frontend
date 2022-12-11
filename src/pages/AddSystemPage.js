@@ -5,23 +5,25 @@ function AddSystemPage() {
         <>
             <h1>Add New System</h1>
             <form>
+            <div>
                 <label>
                     Name:
                     <input type="text" />
                 </label>
+            </div>
+            <div>
                 <label>
                     Description:
                     <textarea />
                 </label>
+            </div>
+            <div>
                 <label>
                     Host:
                     <input type="text" />
                 </label>
-                <label>
-                    Created By:
-                    <input type="text" />
-                </label>
                 <input type="submit" value="Submit" />
+            </div>
             </form>
 
         </>

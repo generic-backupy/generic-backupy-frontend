@@ -1,5 +1,5 @@
 import React from 'react';
-import ModelListPageBody from "../components/ModelListPageBody";
+import ListOfLinks from "../components/ListOfLinks";
 
 function HomePage() {
     let listItems = [
@@ -19,7 +19,7 @@ function HomePage() {
     return (
         <>
             <h1>Admin Dashboard</h1>
-            <ModelListPageBody items={listItems} />
+            <ListOfLinks items={listItems} />
 
         </>
     );

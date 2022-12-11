@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 // props expected contents
 // array of Objects: items (each object has string displayName and string path)
 
-function ModelListPageBody(props) {
+function ListOfLinks(props) {
     return (
         <>
             <ul>
@@ -18,4 +18,4 @@ function ModelListPageBody(props) {
     );
 }
 
-export default ModelListPageBody;
+export default ListOfLinks;

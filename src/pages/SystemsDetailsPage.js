@@ -32,23 +32,24 @@ function SystemsDetailsPage() {
         return <>
             <button onClick={() => setIsEditing(false)}>Cancel Edit</button>
             <form>
+            <div>
                 <label>
                     Name:
                     <input type="text" />
                 </label>
+            </div>
+            <div>
                 <label>
                     Description:
                     <textarea />
                 </label>
+            </div>
+            <div>
                 <label>
                     Host:
                     <input type="text" />
                 </label>
-                <label>
-                    Created By:
-                    <input type="text" />
-                </label>
-                <input type="submit" value="Submit" />
+            </div>
             </form>
         </>;
     };

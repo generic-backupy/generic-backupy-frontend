@@ -1,5 +1,5 @@
 import React from 'react';
-import ModelListPageBody from "../components/ModelListPageBody";
+import ListOfLinks from "../components/ListOfLinks";
 import { Link } from "react-router-dom";
 
 function SystemsListPage() {
@@ -14,7 +14,7 @@ function SystemsListPage() {
         <>
             <h1>Systems List</h1>
             <Link to={"/add-system"}>{"Add a new System"}</Link>
-            <ModelListPageBody items={systemsList} />
+            <ListOfLinks items={systemsList} />
         </>
     );
 }

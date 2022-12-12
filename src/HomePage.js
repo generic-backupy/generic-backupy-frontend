@@ -1,5 +1,5 @@
 import React from 'react';
-import ListOfLinks from "../components/ListOfLinks";
+import ListOfLinks from "./components/ListOfLinks";
 
 function HomePage() {
     let listItems = [

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import SystemForm from "../forms/SystemForm";
+import SystemForm from "./SystemForm";
 
 function getIdNumber() {
     let idPosition = 1 + window.location.pathname.lastIndexOf("/");

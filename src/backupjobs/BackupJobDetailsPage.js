@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import BackupJobForm from "../forms/BackupJobForm";
+import BackupJobForm from "./BackupJobForm";
 
 function getIdNumber() {
     let idPosition = 1 + window.location.pathname.lastIndexOf("/");
@@ -18,7 +18,8 @@ function BackupJobDetailsPage() {
 
     //TODO: get this from a backend API call
     let backupJob = {name: "a name", description: "a description", additionalInfo: "some additional info",
-     createdBy: "a createdby value", system: "System 1", backupModule: "Backup Module 1" };
+     createdBy: "a createdby value", system: "System 1", backupModule: "Backup Module 1",
+     storageModules: ["Storage Module 1", "Storage Module 2"]};
 
     const handleDeleteButton = () => {
         //TODO: call backend
@@ -32,6 +33,15 @@ function BackupJobDetailsPage() {
             <div>{"CreatedBy: " + backupJob.createdBy}</div>
             <div>{"System: " + backupJob.system}</div>
             <div>{"Backup Module: " + backupJob.backupModule}</div>
+            <div>
+                Storage Modules:
+                <ul>
+                    {backupJob.storageModules.map((item, i) =>
+                        <li key={i}>{item}</li>
+                    )}
+                </ul>
+
+            </div>
 
             <button onClick={() => setIsEditing(true)}>Edit</button>
             <button onClick={handleDeleteButton}>Delete</button>

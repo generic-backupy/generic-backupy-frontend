@@ -1,5 +1,5 @@
 import React from 'react';
-import BackupJobForm from "../forms/BackupJobForm";
+import BackupJobForm from "./BackupJobForm";
 
 function AddBackupJobPage() {
 

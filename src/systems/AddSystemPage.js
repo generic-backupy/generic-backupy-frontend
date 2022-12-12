@@ -1,5 +1,5 @@
 import React from 'react';
-import SystemForm from "../forms/SystemForm";
+import SystemForm from "./SystemForm";
 
 function AddSystemPage() {
     const handleAddSubmit = () => {

@@ -1,18 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './css/index.css';
-import App from './pages/App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from './components/Layout';
-import LoginPage from './pages/LoginPage';
-import HomePage from './pages/HomePage';
-import SystemsListPage from './pages/SystemsListPage';
-import SystemDetailsPage from './pages/SystemsDetailsPage';
-import AddSystemPage from './pages/AddSystemPage';
-import BackupJobsListPage from './pages/BackupJobsListPage'
-import BackupJobDetailsPage from './pages/BackupJobDetailsPage';
-import AddBackupJobPage from './pages/AddBackupJobPage';
+import LoginPage from './LoginPage';
+import HomePage from './HomePage';
+import SystemsListPage from './systems/SystemsListPage';
+import SystemDetailsPage from './systems/SystemsDetailsPage';
+import AddSystemPage from './systems/AddSystemPage';
+import BackupJobsListPage from './backupjobs/BackupJobsListPage'
+import BackupJobDetailsPage from './backupjobs/BackupJobDetailsPage';
+import AddBackupJobPage from './backupjobs/AddBackupJobPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

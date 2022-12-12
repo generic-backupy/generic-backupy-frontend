@@ -23,11 +23,17 @@ function BackupJobDetailsPage() {
 
     const handleDeleteButton = () => {
         //TODO: call backend
-        alert("Implement call to delete this System")
+        alert("Implement API call to delete this System")
+    }
+
+    const handleCreateBackup = () => {
+        //TODO: call backend
+        alert("Implement API call to run the backup job");
     }
 
     const displayDetails = () => {
         return <>
+            <button onClick={handleCreateBackup}>Run this Backup Job</button>
             <div>{"Description: "+ backupJob.description}</div>
             <div>{"Additional Info: " + backupJob.additionalInfo}</div>
             <div>{"CreatedBy: " + backupJob.createdBy}</div>

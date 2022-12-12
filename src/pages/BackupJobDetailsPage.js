@@ -1,22 +1,24 @@
 import React, {useState} from 'react';
-import SystemForm from "../forms/SystemForm";
+import BackupJobForm from "../forms/BackupJobForm";
 
 function getIdNumber() {
     let idPosition = 1 + window.location.pathname.lastIndexOf("/");
     return Number(window.location.pathname.substring(idPosition));
 }
 
-function SystemsDetailsPage() {
+function BackupJobDetailsPage() {
     const [isEditing, setIsEditing] = useState(false);
 
-    const systemId = getIdNumber();
-    if (isNaN(systemId)) {
+    const backupJobId = getIdNumber();
+    if (isNaN(backupJobId)) {
         return (
             <h1>Invalid Page</h1>
         );
     }
 
-    let system = {name: "a name", description: "a description", host: "a host", createdBy: "a createdby value"}; //TODO: get this from a backend API call
+    //TODO: get this from a backend API call
+    let backupJob = {name: "a name", description: "a description", additionalInfo: "some additional info",
+     createdBy: "a createdby value", system: "System 1", backupModule: "Backup Module 1" };
 
     const handleDeleteButton = () => {
         //TODO: call backend
@@ -25,9 +27,11 @@ function SystemsDetailsPage() {
 
     const displayDetails = () => {
         return <>
-            <div>{"Description: "+ system.description}</div>
-            <div>{"Host: " + system.host}</div>
-            <div>{"CreatedBy: " + system.createdBy}</div>
+            <div>{"Description: "+ backupJob.description}</div>
+            <div>{"Additional Info: " + backupJob.additionalInfo}</div>
+            <div>{"CreatedBy: " + backupJob.createdBy}</div>
+            <div>{"System: " + backupJob.system}</div>
+            <div>{"Backup Module: " + backupJob.backupModule}</div>
 
             <button onClick={() => setIsEditing(true)}>Edit</button>
             <button onClick={handleDeleteButton}>Delete</button>
@@ -36,19 +40,19 @@ function SystemsDetailsPage() {
 
     const handleUpdateSubmitButton = () => {
         //TODO: Call backend
-        alert("Implement API call to update this System");
+        alert("Implement API call to update this Backup Job");
     };
 
     const editingForm = () => {
         return <>
             <button onClick={() => setIsEditing(false)}>Cancel Edit</button>
-            <SystemForm handleSubmit={handleUpdateSubmitButton} />
+            <BackupJobForm handleSubmit={handleUpdateSubmitButton} />
         </>;
     };
 
     return (
         <>
-            <h1>{system.name}</h1>
+            <h1>{backupJob.name}</h1>
 
             {isEditing ? editingForm() : displayDetails()}
 
@@ -56,4 +60,4 @@ function SystemsDetailsPage() {
     );
 };
 
-export default SystemsDetailsPage;
+export default BackupJobDetailsPage;

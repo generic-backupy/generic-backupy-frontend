@@ -1,31 +1,16 @@
 import React from 'react';
+import SystemForm from "../forms/SystemForm";
 
 function AddSystemPage() {
+    const handleAddSubmit = () => {
+        //TODO: Call backend
+        alert("Implement API call to make a new System");
+    };
+
     return (
         <>
             <h1>Add New System</h1>
-            <form>
-            <div>
-                <label>
-                    Name:
-                    <input type="text" />
-                </label>
-            </div>
-            <div>
-                <label>
-                    Description:
-                    <textarea />
-                </label>
-            </div>
-            <div>
-                <label>
-                    Host:
-                    <input type="text" />
-                </label>
-                <input type="submit" value="Submit" />
-            </div>
-            </form>
-
+            <SystemForm handleSubmit={handleAddSubmit} />
         </>
     );
 };

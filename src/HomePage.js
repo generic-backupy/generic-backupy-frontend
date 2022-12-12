@@ -5,7 +5,7 @@ function HomePage() {
     let listItems = [
         {displayName: "Systems", path: "/systems"},
         {displayName: "Backup Jobs", path: "/backup-jobs"},
-        {displayName: "Backups", path: "/backups"}, //TODO: make BackupsListPage
+        {displayName: "Backups", path: "/backups"},
         {displayName: "Backup Modules", path: "/backup-modules"}, //TODO: make BackupModulesListPage
         {displayName: "Storage Modules", path: "/storage-modules"}, //TODO: make StorageModulesListPage
         {displayName: "Backup Executions", path: "/backup-executions"}, //TODO: make BackupExecutionsListPage

@@ -12,6 +12,8 @@ import AddSystemPage from './systems/AddSystemPage';
 import BackupJobsListPage from './backupjobs/BackupJobsListPage'
 import BackupJobDetailsPage from './backupjobs/BackupJobDetailsPage';
 import AddBackupJobPage from './backupjobs/AddBackupJobPage';
+import BackupsListPage from './backups/BackupsListPage'
+import BackupDetailsPage from './backups/BackupDetailsPage'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -27,6 +29,8 @@ root.render(
                     <Route path="backup-jobs" element={<BackupJobsListPage />} />
                     <Route path="backup-jobs/*" element={<BackupJobDetailsPage />} />
                     <Route path="add-backup-jobs" element={<AddBackupJobPage />} />
+                    <Route path="backups" element={<BackupsListPage />} />
+                    <Route path="backups/*" element={<BackupDetailsPage />} />
                 </Route>
             </Routes>
         </BrowserRouter>

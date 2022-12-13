@@ -14,6 +14,13 @@ import BackupJobDetailsPage from './backupjobs/BackupJobDetailsPage';
 import AddBackupJobPage from './backupjobs/AddBackupJobPage';
 import BackupsListPage from './backups/BackupsListPage'
 import BackupDetailsPage from './backups/BackupDetailsPage'
+import BackupModulesListPage from './backupmodules/BackupModulesListPage';
+import BackupModuleDetailsPage from './backupmodules/BackupModuleDetailsPage';
+import AddBackupModulePage from './backupmodules/AddBackupModulePage';
+import StorageModulesListPage from './storagemodules/StorageModulesListPage';
+import StorageModuleDetailsPage from './storagemodules/StorageModuleDetailsPage';
+import AddStorageModulePage from './storagemodules/AddStorageModulePage';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -29,8 +36,16 @@ root.render(
                     <Route path="backup-jobs" element={<BackupJobsListPage />} />
                     <Route path="backup-jobs/*" element={<BackupJobDetailsPage />} />
                     <Route path="add-backup-jobs" element={<AddBackupJobPage />} />
+                    <Route path="backup-modules" element={<BackupModulesListPage />} />
+                    <Route path="backup-modules/*" element={<BackupModuleDetailsPage />} />
+                    <Route path="add-backup-modules" element={<AddBackupModulePage />} />
                     <Route path="backups" element={<BackupsListPage />} />
                     <Route path="backups/*" element={<BackupDetailsPage />} />
+                    <Route path="storage-modules" element={<StorageModulesListPage />} />
+                    <Route path="storage-modules/*" element={<StorageModuleDetailsPage />} />
+                    <Route path="add-storage-modules" element={<AddStorageModulePage />} />
+                    
+
                 </Route>
             </Routes>
         </BrowserRouter>

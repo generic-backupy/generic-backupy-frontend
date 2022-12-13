@@ -7,11 +7,12 @@ import { Link } from "react-router-dom";
 function ListOfLinks(props) {
     return (
         <>
-            <ul>
+            <ul class="listoflinks">
                 {props.items.map((item, i) =>
-                    <li key={i}>
-                        <Link to={item.path}>{item.displayName}</Link>
+                    <li key={i} class="link">
+                            <Link to={item.path}>{item.displayName}</Link>
                     </li>
+                
                 )}
             </ul>
         </>

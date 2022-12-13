@@ -5,9 +5,40 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #000
+  
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+h1 {
+  text-align: center;
+  color: #EEEEEE;
+}
+
+.listoflinks {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.link {
+ 
+  display: flex;
+ 
+  margin: 20px;
+
+  
+
+  width: 300px;
+  height: 500px;
+  background-color: #222d35;
+  
+  box-shadow: 0 16px 32px 0 #334756; 
+  border-radius: 25px;
+  justify-content: center;
+  align-items: center;
+
+}  

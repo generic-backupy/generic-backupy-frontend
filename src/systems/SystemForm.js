@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button, Form, FormGroup, Label, Input, Container } from 'reactstrap';
 
 // props expected contents
 // function: handleSubmit
@@ -6,29 +7,32 @@ import React from 'react';
 function SystemForm(props) {
     return (
         <>
-            <form onSubmit={props.handleSubmit}>
-            <div>
-                <label>
-                    Name:
-                    <input type="text" />
-                </label>
-            </div>
-            <div>
-                <label>
+        <Container className='container my-5'>
+
+            <Form onSubmit={props.handleSubmit}>
+            <FormGroup>
+                <Label className='col-sm-2'>
+                    Name: 
+                </Label>
+                <Input className='col-sm-10' type="text" />
+            </FormGroup>
+            <FormGroup>
+                <Label col-sm-2>
                     Description:
-                    <textarea />
-                </label>
-            </div>
-            <div>
-                <label>
+                </Label>
+                <Input className='col-sm-10' type="textarea" />
+            </FormGroup>
+            <FormGroup className='form-group'>
+                <Label>
                     Host:
-                    <input type="text" />
-                </label>
-            </div>
+                    
+                </Label>
+                <Input className='col-sm-10' type="text" />
+            </FormGroup>
+            <Button type='submit'>Submit</Button>
+            </Form>
 
-            <input type="submit" value="Submit" />
-            </form>
-
+        </Container>
         </>
     );
 }

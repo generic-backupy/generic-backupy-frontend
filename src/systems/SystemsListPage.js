@@ -13,7 +13,8 @@ function SystemsListPage() {
     return (
         <>
             <h1>Systems List</h1>
-            <Link to={"/add-system"}>{"Add a new System"}</Link>
+            <hr/>
+            <Link className='dark' to={"/add-system"}>{"Add a new System"}</Link>
             <ListOfLinks items={systemsList} />
         </>
     );

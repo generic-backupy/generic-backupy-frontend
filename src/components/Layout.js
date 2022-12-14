@@ -7,6 +7,7 @@ function Layout() {
         <>
             <Navigator/>
             <br/>
+            <hr/>
             <div className="container mt-5 pt-5">
             <Outlet />
             </div>

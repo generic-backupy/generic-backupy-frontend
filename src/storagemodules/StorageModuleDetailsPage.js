@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import StorageModuleForm from "./StorageModuleForm";
+import { Button, Container, Label } from 'reactstrap';
+
 
 function getIdNumber() {
     let idPosition = 1 + window.location.pathname.lastIndexOf("/");
@@ -25,15 +27,17 @@ function StorageModuleDetailsPage() {
         alert("Implement API call to delete this System")
     }
 
-
     const displayDetails = () => {
         return <>
-            <div>{"Description: "+ storageModule.description}</div>
-            <div>{"Additional Info: " + storageModule.additionalInfo}</div>
-            <div>{"CreatedBy: " + storageModule.createdBy}</div>
 
-            <button onClick={() => setIsEditing(true)}>Edit</button>
-            <button onClick={handleDeleteButton}>Delete</button>
+            <Container className='row my-3'>
+            
+            <Label>Description: {storageModule.description}</Label>
+            <Label>Additional Info:: {storageModule.additionalInfo}</Label>
+            <Label>CreatedBy: {storageModule.createdBy}</Label>
+            <Button className='my-2' onClick={() => setIsEditing(true)}>Edit</Button>
+            <Button  className='my-2' onClick={handleDeleteButton}>Delete</Button>
+            </Container>
         </>;
     };
 

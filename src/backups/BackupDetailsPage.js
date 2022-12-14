@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button, Container, Label } from 'reactstrap';
 
 function getIdNumber() {
     let idPosition = 1 + window.location.pathname.lastIndexOf("/");
@@ -30,17 +31,22 @@ function BackupsDetailsPage() {
 
     const displayDetails = () => {
         return <>
-            <div>{"Description: "+ backup.description}</div>
-            <div>{"Host: " + backup.host}</div>
-            <div>{"CreatedBy: " + backup.createdBy}</div>
-            <div>{"Path: " + backup.path}</div>
-            <div>{"Backup Job: " + backup.backupJob}</div>
-            <div>{"Backup Module: " + backup.backupModule}</div>
-            <div>{"Storage Module: " + backup.storageModule}</div>
-            <div>{"Backup Execution: " + backup.backupExecution}</div>
-            <div>{"Storage Execution: " + backup.storageExecution}</div>
+            <Container className='row my-3'>
+            
+            <Label>Description: {backup.description}</Label>
+            <Label>Host: {backup.host}</Label>
+            <Label>CreatedBy: {backup.createdBy}</Label>
+            <Label>{"Path: " + backup.path}</Label>
+            <Label>{"Backup Job: " + backup.backupJob}</Label>
+            <Label>{"Backup Module: " + backup.backupModule}</Label>
+            <Label>{"Storage Module: " + backup.storageModule}</Label>
+            <Label>{"Backup Execution: " + backup.backupExecution}</Label>
+            <Label>{"Storage Execution: " + backup.storageExecution}</Label>
 
-            <button onClick={handleDeleteButton}>Delete</button>
+            <Button  className='my-2' onClick={handleDeleteButton}>Delete</Button>
+            </Container>
+
+
         </>;
     };
 
@@ -49,6 +55,7 @@ function BackupsDetailsPage() {
             <h1>{backup.name}</h1>
             <button onClick={handleRestoreButton}>Restore from this Backup</button>
             {displayDetails()}
+            
 
         </>
     );

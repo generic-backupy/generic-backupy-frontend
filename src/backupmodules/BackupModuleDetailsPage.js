@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import BackupModuleForm from "./BackupModuleForm";
+import { Button, Container, Label } from 'reactstrap';
 
 function getIdNumber() {
     let idPosition = 1 + window.location.pathname.lastIndexOf("/");
@@ -28,12 +29,14 @@ function BackupModuleDetailsPage() {
 
     const displayDetails = () => {
         return <>
-            <div>{"Description: "+ backupModule.description}</div>
-            <div>{"Additional Info: " + backupModule.additionalInfo}</div>
-            <div>{"CreatedBy: " + backupModule.createdBy}</div>
+            <Container>
+            <p>Description: {backupModule.description}</p>
+            <p>AdditionalInfo: {backupModule.additionalInfo}</p>
+            <p>CreatedBy: {backupModule.createdBy}</p>
 
-            <button onClick={() => setIsEditing(true)}>Edit</button>
-            <button onClick={handleDeleteButton}>Delete</button>
+            <Button onClick={() => setIsEditing(true)}>Edit</Button>
+            <Button onClick={handleDeleteButton}>Delete</Button>
+            </Container>
         </>;
     };
 

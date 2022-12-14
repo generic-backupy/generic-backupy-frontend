@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import BackupJobForm from "./BackupJobForm";
+import { Button, Container, Label } from 'reactstrap';
 
 function getIdNumber() {
     let idPosition = 1 + window.location.pathname.lastIndexOf("/");
@@ -33,12 +34,13 @@ function BackupJobDetailsPage() {
 
     const displayDetails = () => {
         return <>
-            <button onClick={handleCreateBackup}>Run this Backup Job</button>
-            <div>{"Description: "+ backupJob.description}</div>
-            <div>{"Additional Info: " + backupJob.additionalInfo}</div>
-            <div>{"CreatedBy: " + backupJob.createdBy}</div>
-            <div>{"System: " + backupJob.system}</div>
-            <div>{"Backup Module: " + backupJob.backupModule}</div>
+        <Container>
+            <Button onClick={handleCreateBackup}>Run this Backup Job</Button>
+            <p>Description: {backupJob.description}</p>
+            <p>AdditionalInfo: {backupJob.additionalInfo}</p>
+            <p>CreatedBy: {backupJob.createdBy}</p>
+            <p>{"System: " + backupJob.system}</p>
+            <p>{"Backup Module: " + backupJob.backupModule}</p>
             <div>
                 Storage Modules:
                 <ul>
@@ -49,8 +51,9 @@ function BackupJobDetailsPage() {
 
             </div>
 
-            <button onClick={() => setIsEditing(true)}>Edit</button>
-            <button onClick={handleDeleteButton}>Delete</button>
+            <Button onClick={() => setIsEditing(true)}>Edit</Button>
+            <Button onClick={handleDeleteButton}>Delete</Button>
+            </Container>
         </>;
     };
 

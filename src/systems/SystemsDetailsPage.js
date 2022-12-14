@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import SystemForm from "./SystemForm";
+import { Button, Container, Label } from 'reactstrap';
+
 
 function getIdNumber() {
     let idPosition = 1 + window.location.pathname.lastIndexOf("/");
@@ -25,12 +27,14 @@ function SystemsDetailsPage() {
 
     const displayDetails = () => {
         return <>
-            <div>{"Description: "+ system.description}</div>
-            <div>{"Host: " + system.host}</div>
-            <div>{"CreatedBy: " + system.createdBy}</div>
-
-            <button onClick={() => setIsEditing(true)}>Edit</button>
-            <button onClick={handleDeleteButton}>Delete</button>
+            <Container className='row my-3'>
+            
+            <Label>Description: {system.description}</Label>
+            <Label>Host: {system.host}</Label>
+            <Label>CreatedBy: {system.createdBy}</Label>
+            <Button className='my-2' onClick={() => setIsEditing(true)}>Edit</Button>
+            <Button  className='my-2' onClick={handleDeleteButton}>Delete</Button>
+            </Container>
         </>;
     };
 

@@ -7,14 +7,34 @@ import { Link } from "react-router-dom";
 function ListOfLinks(props) {
     return (
         <>
-            <ul class="listoflinks">
+            <div className="container-fluid mt-3">
+            <div className="row">
+            <ul className="listoflinks">
                 {props.items.map((item, i) =>
                     <li key={i} class="link">
-                            <Link to={item.path}>{item.displayName}</Link>
+                            {/* <Link to={item.path}>{item.displayName}</Link> */}
+                            <div className="col-md-3 col-sm-4">
+                                <div className="card border-5 m-2" style={{width:"17rem", height:"9rem"}}>
+                                    <a href={item.path}>
+                                    <div className="card-img-top" style={{height:"4rem"}}>
+                                    <center className='my-1'><i class={"fa ".concat(item.icon)} style={{color:"#222d35",fontSize:"3.5rem"}}></i> </center>
+
+                                    </div>
+                                    <div className='card-body'>
+                                        <h4 className='card-title'>{item.displayName} </h4>
+                                    </div>
+                                    </a>
+                                </div>
+                            </div>
                     </li>
-                
+                    
                 )}
+
+                
             </ul>
+
+            </div>
+</div>
         </>
     );
 }

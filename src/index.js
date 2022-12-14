@@ -33,7 +33,7 @@ root.render(
             <Routes>
                 <Route path="/" element={<Layout />} >
                     <Route index element={<HomePage />} />
-                    <Route path="login" element={<LoginPage />} />
+                    <Route path="login" element={<LoginPage/>} />
                     <Route path="systems" element={<SystemsListPage />} />
                     <Route path="systems/*" element={<SystemDetailsPage />} />
                     <Route path="add-system" element={<AddSystemPage />} />

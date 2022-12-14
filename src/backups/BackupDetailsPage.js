@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 function getIdNumber() {
     let idPosition = 1 + window.location.pathname.lastIndexOf("/");

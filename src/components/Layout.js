@@ -1,12 +1,15 @@
 import React from "react";
 import {Outlet} from "react-router-dom";
-import Navbar from "./Navbar";
+import Navigator from "./Navigator";
 
 function Layout() {
     return (
         <>
-            <Navbar />
+            <Navigator/>
+            <br/>
+            <div className="container mt-5 pt-5">
             <Outlet />
+            </div>
         </>
     );
 };

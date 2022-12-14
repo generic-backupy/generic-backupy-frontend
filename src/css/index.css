@@ -5,9 +5,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #000
+  background-color: #222d35 !important;
   
 }
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -17,6 +18,13 @@ code {
 h1 {
   text-align: center;
   color: #EEEEEE;
+}
+
+.navigator-bar{
+  background-color: #334756 !important;
+}
+.nav-header{
+  color: #d80000 !important; 
 }
 
 .listoflinks {
@@ -30,15 +38,36 @@ h1 {
  
   margin: 20px;
 
-  
-
   width: 300px;
   height: 500px;
-  background-color: #222d35;
+  background-color: #334756;
   
-  box-shadow: 0 16px 32px 0 #334756; 
+  box-shadow: 0 10px 10px 0 #222d35; 
   border-radius: 25px;
   justify-content: center;
   align-items: center;
-
 }  
+
+
+.link:hover {
+
+  background-color: #273742;
+  
+  box-shadow: 0 10px 10px 0 #ffffff; 
+  border-radius: 2zpx;
+  justify-content: center;
+  align-items: center;
+}  
+
+a, a:hover, a:focus, a:active {
+  text-decoration: none !important;
+}
+
+a {
+  color: #EEEEEE !important;
+}
+
+a:hover{
+  color: #d80000 !important;
+}
+

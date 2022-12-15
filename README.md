@@ -2,6 +2,9 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Action Status
+![Continuous Integration (CI)](https://github.com/generic-backupy/generic-backupy-frontend/actions/workflows/CI.yml/badge.svg)
+
 ## Available Scripts
 
 In the project directory, you can run:

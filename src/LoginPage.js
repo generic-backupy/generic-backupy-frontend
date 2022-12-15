@@ -1,4 +1,5 @@
 import React, { Component} from 'react';
+import { Col, Button, Form, FormGroup, Label, Input, Container } from 'reactstrap';
 
 class LoginPage extends Component {
 
@@ -32,23 +33,34 @@ class LoginPage extends Component {
     return (
       <div>
         <h1>Login user form</h1>
+        <hr className='mb-5'/>
+        <Form>
+        <FormGroup row>
+          <Label className='col-sm-1'> Username: </Label>
+          <Col sm={3}>
+            <Input type="text" name="username" 
+            value={this.state.credentials.username}
+            onChange={this.inputChanged}/>
+          </Col>
+        </FormGroup>
+        <br/>
 
-        <label>
-          Username:
-          <input type="text" name="username"
-           value={this.state.credentials.username}
-           onChange={this.inputChanged}/>
-        </label>
+        <FormGroup row>
+          <Label className='col-sm-1'> Password: </Label>
+          <Col sm={3}>
+            <Input className='col-sm-3' type="password" name="password"
+            value={this.state.credentials.password}
+            onChange={this.inputChanged}/>
+           </Col>
+        </FormGroup>
+
         <br/>
-        <label>
-          Password:
-          <input type="password" name="password"
-           value={this.state.credentials.password}
-           onChange={this.inputChanged} />
-        </label>
-        <br/>
-        <button onClick={this.login}>Login</button>
+        <Button onClick={this.login}>Login</Button>
+      
+        </Form>
       </div>
+
+
     );
   }
 }

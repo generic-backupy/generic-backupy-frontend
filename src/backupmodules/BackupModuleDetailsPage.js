@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import BackupModuleForm from "./BackupModuleForm";
-import { Button, Container, Label } from 'reactstrap';
+import { Button, Container } from 'reactstrap';
 
 function getIdNumber() {
     let idPosition = 1 + window.location.pathname.lastIndexOf("/");

@@ -3,6 +3,6 @@ import HomePage from '../HomePage';
 
 test('renders HomePage header text', () => {
   render(<HomePage />);
-  const headerElement = screen.getByText(/This is the Home Page. YEAHHHH!/i);
+  const headerElement = screen.getByText(/Admin Dashboard/i);
   expect(headerElement).toBeInTheDocument();
 });

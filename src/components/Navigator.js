@@ -1,8 +1,32 @@
 import React from "react";
-import {Navbar, Nav,Collapse,NavItem, NavbarBrand, Button} from 'reactstrap';
+import {Navbar, Collapse, NavbarBrand, Button, ButtonGroup, Form} from 'reactstrap';
 
 function Navigator() {
     //TODO: Add Functions for user authentications
+
+
+    const currentUser = null;
+
+    const handleLogoutClick = () => {
+        console.log('No logout currently.');
+    }
+
+    const authButton = () => {
+        if (currentUser === null) {
+            return (
+                <ButtonGroup>
+                    <Button variant="secondary" href="/login">Login</Button>
+                    <Button variant="secondary" href="/">Signup</Button>
+                </ButtonGroup>
+            )
+                
+        } else {
+            return <Button variant="secondary" onClick={handleLogoutClick}>Logout</Button>
+        }
+    }
+
+
+
     return (
                 <React.Fragment>
                     <Navbar className="ml-auto py-3 navigator-bar" dark expand="xl" fixed="top">
@@ -13,19 +37,11 @@ function Navigator() {
 
                         <Collapse navbar  className="justify-content-end" >
 
-                        <Nav navbar>
-                        <NavItem>
-                            <Button outline color="secondary">
-                                <span className="fa fa-sign-in fa-lg"></span> Login
-                            </Button>
-                                    
-                            <Button outline color="secondary">
-                                <span className="fa fa-sign-out fa-lg"></span> Register
-                            </Button>
-                        </NavItem>
-                        </Nav>
                         </Collapse>
                         </div>
+                        <Form inline className="mx-3">
+                            {authButton()}
+                        </Form>
                     </Navbar>
                 </React.Fragment>
     );

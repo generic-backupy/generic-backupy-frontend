@@ -26,7 +26,8 @@ import AddBackupModulePage from './backupmodules/AddBackupModulePage';
 import StorageModulesListPage from './storagemodules/StorageModulesListPage';
 import StorageModuleDetailsPage from './storagemodules/StorageModuleDetailsPage';
 import AddStorageModulePage from './storagemodules/AddStorageModulePage';
-
+import BackupExecutionsListPage from './backupexecutions/BackupExecutionsListPage';
+import BackupExecutionDetailsPage from './backupexecutions/BackupExecutionDetailsPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -50,7 +51,9 @@ root.render(
                     <Route path="storage-modules" element={<StorageModulesListPage />} />
                     <Route path="storage-modules/*" element={<StorageModuleDetailsPage />} />
                     <Route path="add-storage-modules" element={<AddStorageModulePage />} />
-                    
+                    <Route path="backup-executions" element={<BackupExecutionsListPage />} />
+                    <Route path="backup-executions/*" element={<BackupExecutionDetailsPage />} />
+
 
                 </Route>
             </Routes>

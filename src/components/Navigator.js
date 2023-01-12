@@ -39,7 +39,7 @@ function Navigator() {
 
                         </Collapse>
                         </div>
-                        <Form inline className="mx-3">
+                        <Form className="mx-3">
                             {authButton()}
                         </Form>
                     </Navbar>

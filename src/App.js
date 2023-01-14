@@ -1,6 +1,7 @@
 import './css/App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import React, { useState } from "react";
+import React from "react";
+import useToken from "./hooks/useToken";
 
 import Layout from './components/Layout';
 import LoginPage from './LoginPage';
@@ -28,17 +29,17 @@ import StorageExecutionDetailsPage from './storageexecutions/StorageExecutionDet
 
 
 function App() {
-
-  const [token, setToken] = useState();
+  const { token, setToken } = useToken();
 
   if (!token) {
+    // TODO: change to include the Register User also
     return <LoginPage setToken={setToken} />
   }
 
   return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<Layout />} >
+                <Route path="/" element={<Layout token={token} setToken={setToken}/>} >
                     <Route index element={<HomePage />} />
                     <Route path="login" element={<LoginPage setToken={setToken}/>} />
                     <Route path="systems" element={<SystemsListPage />} />

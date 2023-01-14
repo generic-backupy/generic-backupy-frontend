@@ -19,7 +19,7 @@ function Navigator() {
                     <Button variant="secondary" href="/">Signup</Button>
                 </ButtonGroup>
             )
-                
+
         } else {
             return <Button variant="secondary" onClick={handleLogoutClick}>Logout</Button>
         }

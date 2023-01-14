@@ -1,5 +1,6 @@
 import React, { Component} from 'react';
 import { Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import PropTypes from 'prop-types';
 
 class LoginPage extends Component {
 
@@ -16,7 +17,9 @@ class LoginPage extends Component {
     .then( data => data.json())
     .then(
         data => {
-            console.log(data.token)
+//            console.log(data)
+            console.log(data.token);
+            this.props.setToken(data.token);
         }
     )
     .catch( error => console.error(error))
@@ -63,6 +66,10 @@ class LoginPage extends Component {
 
     );
   }
+}
+
+LoginPage.propTypes = {
+  setToken: PropTypes.func.isRequired
 }
 
 export default LoginPage;

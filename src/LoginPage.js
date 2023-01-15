@@ -17,8 +17,6 @@ class LoginPage extends Component {
     .then( data => data.json())
     .then(
         data => {
-//            console.log(data)
-            console.log(data.token);
             this.props.setToken(data.token);
         }
     )

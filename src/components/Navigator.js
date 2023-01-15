@@ -3,8 +3,6 @@ import {Navbar, Collapse, NavbarBrand, Button, ButtonGroup, Form} from 'reactstr
 import PropTypes from 'prop-types';
 
 function Navigator({ token, setToken }) {
-    //TODO: Add Functions for user authentications
-
 
     const handleLogoutClick = () => {
         setToken("");

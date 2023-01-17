@@ -1,12 +1,11 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import {Outlet} from "react-router-dom";
 import Navigator from "./Navigator";
-import PropTypes from 'prop-types';
 
-function Layout({ token, setToken }) {
+function Layout() {
     return (
         <>
-            <Navigator token={token} setToken={setToken}/>
+            <Navigator/>
             <br/>
             <hr/>
             <div className="container mt-5 pt-5">
@@ -15,10 +14,5 @@ function Layout({ token, setToken }) {
         </>
     );
 };
-
-Layout.propTypes = {
-  setToken: PropTypes.func.isRequired,
-  token: PropTypes.string.isRequired
-}
 
 export default Layout;

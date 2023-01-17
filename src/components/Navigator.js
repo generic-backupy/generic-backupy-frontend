@@ -1,22 +1,25 @@
 import React from "react";
 import {Navbar, Collapse, NavbarBrand, Button, ButtonGroup, Form} from 'reactstrap';
-import PropTypes from 'prop-types';
 
-function Navigator({ token, setToken }) {
+function Navigator() {
+    //TODO: Add Functions for user authentications
+
+
+    const currentUser = null;
 
     const handleLogoutClick = () => {
-        setToken("");
+        console.log('No logout currently.');
     }
 
     const authButton = () => {
-        if (!token) {
+        if (currentUser === null) {
             return (
                 <ButtonGroup>
                     <Button variant="secondary" href="/login">Login</Button>
                     <Button variant="secondary" href="/">Signup</Button>
                 </ButtonGroup>
             )
-
+                
         } else {
             return <Button variant="secondary" onClick={handleLogoutClick}>Logout</Button>
         }
@@ -36,17 +39,12 @@ function Navigator({ token, setToken }) {
 
                         </Collapse>
                         </div>
-                        <Form className="mx-3">
+                        <Form inline className="mx-3">
                             {authButton()}
                         </Form>
                     </Navbar>
                 </React.Fragment>
     );
 };
-
-Navigator.propTypes = {
-  setToken: PropTypes.func.isRequired,
-  token: PropTypes.string.isRequired
-}
 
 export default Navigator;

@@ -5,6 +5,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Action Status
 ![Continuous Integration (CI)](https://github.com/generic-backupy/generic-backupy-frontend/actions/workflows/CI.yml/badge.svg)
 
+## Running the Production Server
+In the project directory, run `npm run build` and then `node server.js`.
+If you do this locally, you can go to [http://localhost:9000](http://localhost:9000) to view it in your browser.
+
 ## Available Scripts
 
 In the project directory, you can run:

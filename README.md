@@ -5,9 +5,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Action Status
 ![Continuous Integration (CI)](https://github.com/generic-backupy/generic-backupy-frontend/actions/workflows/CI.yml/badge.svg)
 
-## Running the Production Server
+## Running the Production Server locally
 In the project directory, run `npm run build` and then `node server.js`.
 If you do this locally, you can go to [http://localhost:9000](http://localhost:9000) to view it in your browser.
+
+## Running the Docker Container locally
+Assuming that you have docker installed on your local machine, run `docker build -t {image-name}:{tag-name} .` to build the Docker image.
+Then run `docker run -d -p 9000:9000 {image-name}:{tag-name}` to run it.
+Then, you can go to [http://localhost:9000](http://localhost:9000) to view it in your browser.
 
 ## Available Scripts
 

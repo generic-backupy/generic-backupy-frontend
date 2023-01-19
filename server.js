@@ -9,4 +9,5 @@ app.get('/*', function (req, res) { // This is needed for React Router to work c
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
+console.log(`server.js running. Listening on port ${port}`);
 app.listen(port);

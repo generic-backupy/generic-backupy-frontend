@@ -56,3 +56,13 @@ jobs:
     
     - name: Build
       run: npm run build --if-present
+
+    - name: Build and Push Docker Image
+    - uses: mr-smithers-excellent/docker-build-push@v5
+      with:
+        image: jmahal0/generic-backupy-frontend
+        tags: 1.0
+        registry: docker.io
+        dockerfile: Dockerfile
+        username: ${{ secrets.DOCKER_USERNAME }} #add these to the repo's secrets
+        password: ${{ secrets.DOCKER_PASSWORD }}

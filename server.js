@@ -3,6 +3,7 @@ const path = require('path');
 const app = express();
 const port = 9000;
 
+app.disable("x-powered-by");
 app.use(express.static(path.join(__dirname, 'build')));
 
 app.get('/*', function (req, res) { // This is needed for React Router to work correctly

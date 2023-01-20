@@ -1,8 +1,14 @@
 import { render, screen } from '@testing-library/react';
 import App from '../App';
+import LoginPage from '../LoginPage'
+import useToken from '../hooks/useToken'
 
-test('renders learn react link', () => {
+test('renders LoginPage when not logged in', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+
+  const loginPageHeaderElement = screen.getByText(/Login user form/i);
+  expect(loginPageHeaderElement).toBeInTheDocument();
+
+  const homePageHeaderElement = screen.queryByText(/Admin Dashboard/i);
+  expect(homePageHeaderElement).toBeNull();
 });

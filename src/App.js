@@ -31,11 +31,6 @@ import StorageExecutionDetailsPage from './storageexecutions/StorageExecutionDet
 function App() {
   const { token, setToken } = useToken();
 
-  if (!token) {
-    // TODO: change to include the Register User or Put a User Registration form in the Login Page
-    return <LoginPage setToken={setToken} />
-  }
-
   return (
         <BrowserRouter>
             <Routes>

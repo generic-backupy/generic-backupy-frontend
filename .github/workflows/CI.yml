@@ -57,6 +57,12 @@ jobs:
     - name: Build
       run: npm run build --if-present
 
+  publish-docker-image:
+    needs: build
+
+    runs-on: ubuntu-latest
+
+    steps:
     - name: Build and Push Docker Image
     - uses: mr-smithers-excellent/docker-build-push@v5
       with:
@@ -64,5 +70,17 @@ jobs:
         tags: 1.0
         registry: docker.io
         dockerfile: Dockerfile
-        username: ${{ secrets.DOCKER_USERNAME }} #add these to the repo's secrets
+        username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
+
+    # Deploy on digital ocean
+  deploy:
+    needs: publish-docker-image
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Start the docker container within the DigitalOcean droplet
+        run: ssh -o StrictHostKeyChecking=no -i $SSH_KEY_DIGITAL_OCEAN root@68.183.219.99 "
+              docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }} &&
+              docker run -d -p 9000:9000 jmahal0/generic-backupy-frontend:1.0"

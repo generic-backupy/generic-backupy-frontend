@@ -2,15 +2,18 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import Navigator from "./Navigator";
 import PropTypes from 'prop-types';
+import LoginPage from '../LoginPage';
 
 function Layout({ token, setToken }) {
+
     return (
         <>
             <Navigator token={token} setToken={setToken}/>
             <br/>
             <hr/>
             <div className="container mt-5 pt-5">
-            <Outlet />
+            { token && <Outlet />}
+            { !token && <LoginPage setToken={setToken}/>}
             </div>
         </>
     );

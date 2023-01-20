@@ -1,0 +1,74 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
+name: Continuous Deployment (CD)
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }} (Setup the environment)
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      # Consider this as an add on to optimize the execution of actions
+      - name: Cache node modules
+        id: cache-npm
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-node-modules
+        with:
+          # npm cache files are stored in `~/.npm` on Linux/macOS
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - name: Clean Install dependencies
+        run: npm ci
+
+      - name: Run the tests     # and generate coverage report
+        run: npm test        # --coverage
+
+      # - name: Upload coverage to Codecov
+      #  uses: codecov/codecov-action@v1
+
+      - name: Build
+        run: npm run build --if-present
+
+      - name: Build and Push Docker Image
+        uses: mr-smithers-excellent/docker-build-push@v5
+        with:
+          image: jmahal0/generic-backupy-frontend
+          tags: 1.0
+          registry: docker.io
+          dockerfile: Dockerfile
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Ready DigitalOcean key
+        run: echo "${{ secrets.SSH_KEY_DIGITAL_OCEAN }}" > ./key && chmod 400 ./key
+
+      - name: Deploy on DigitalOcean
+        run: ssh -o StrictHostKeyChecking=no -i ./key root@68.183.219.99 "
+          docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }} &&
+          docker run -d -p 9000:9000 jmahal0/generic-backupy-frontend:1.0"

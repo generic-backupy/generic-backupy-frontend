@@ -63,22 +63,18 @@ function SystemsDetailsPage({ token }) {
             
             <Label>Description: {item.description}</Label>
             <Label>Host: {item.host}</Label>
-            <p>AdditionalInfo: {item.additional_information}</p>
+            <p>Additional Info: {item.additional_information}</p>
             <Button className='my-2' onClick={() => setIsEditing(true)}>Edit</Button>
-            <Button  className='my-2' onClick={handleDeleteButton}>Delete</Button>
+            <Button className='my-2' onClick={handleDeleteButton}>Delete</Button>
             </Container>
         </>;
     };
 
-    const handleUpdateSubmitButton = () => {
-        //TODO: Call backend
-        alert("Implement API call to update this System");
-    };
 
     const editingForm = () => {
         return <>
             <button onClick={() => setIsEditing(false)}>Cancel Edit</button>
-            <SystemForm handleSubmit={handleUpdateSubmitButton} />
+            <SystemForm isAdd={false} token={token}/>
         </>;
     };
 

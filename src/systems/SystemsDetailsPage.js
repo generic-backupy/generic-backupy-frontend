@@ -1,14 +1,14 @@
 import React, {useState} from 'react';
 import SystemForm from "./SystemForm";
 import { Button, Container, Label } from 'reactstrap';
-
+import PropTypes from 'prop-types';
 
 function getIdNumber() {
     let idPosition = 1 + window.location.pathname.lastIndexOf("/");
     return Number(window.location.pathname.substring(idPosition));
 }
 
-function SystemsDetailsPage() {
+function SystemsDetailsPage({ token }) {
     const [isEditing, setIsEditing] = useState(false);
 
     const systemId = getIdNumber();
@@ -59,5 +59,9 @@ function SystemsDetailsPage() {
         </>
     );
 };
+
+SystemsDetailsPage.propTypes = {
+  token: PropTypes.string.isRequired
+}
 
 export default SystemsDetailsPage;

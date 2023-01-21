@@ -12,8 +12,7 @@ function Layout({ token, setToken }) {
             <br/>
             <hr/>
             <div className="container mt-5 pt-5">
-            {token && <Outlet />}
-            {!token && <LoginPage setToken={setToken}/>}
+            {token ? <Outlet /> : <LoginPage setToken={setToken}/>}
             </div>
         </>
     );

@@ -7,6 +7,16 @@ function SystemsListPage({ token }) {
     const [items, setItems] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
 
+    const onSuccess = (json) => {
+        let temp = [];
+        json.results.forEach((element) => {
+            temp.push({displayName: element.name, path: `/systems/${element.id}`});
+        });
+
+        setItems(temp);
+        setIsLoading(false);
+    };
+
     useEffect(() => {
         fetch('http://localhost:8005/api/v1/systems/', {
             method: 'GET',
@@ -16,15 +26,7 @@ function SystemsListPage({ token }) {
             },
         })
         .then(response => response.json())
-        .then(json => {
-            let temp = [];
-            json.results.forEach((element) => {
-                temp.push({displayName: element.name, path: `/systems/${element.id}`});
-                console.log(element);
-            });
-            setItems(temp);
-            setIsLoading(false);
-        })
+        .then(json => onSuccess(json))
         .catch(error => {
             console.error(error);
             setIsLoading(false);
@@ -42,7 +44,7 @@ function SystemsListPage({ token }) {
 }
 
 SystemsListPage.propTypes = {
-  token: PropTypes.string.isRequired
+  token: PropTypes.string
 }
 
 export default SystemsListPage;

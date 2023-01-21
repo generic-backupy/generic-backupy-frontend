@@ -14,10 +14,17 @@ class LoginPage extends Component {
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(this.state.credentials)
     })
-    .then( data => data.json())
+    .then( data => {
+        if (data.ok) {
+            return data.json();
+        }
+        alert("Unrecognized username or password");
+    })
     .then(
         data => {
-            this.props.setToken(data.token);
+            if (data?.token) {
+                this.props.setToken(data.token);
+            }
         }
     )
     .catch( error => console.error(error))

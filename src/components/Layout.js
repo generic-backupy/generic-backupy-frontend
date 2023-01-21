@@ -20,7 +20,7 @@ function Layout({ token, setToken }) {
 
 Layout.propTypes = {
   setToken: PropTypes.func.isRequired,
-  token: PropTypes.string.isRequired
+  token: PropTypes.string
 }
 
 export default Layout;

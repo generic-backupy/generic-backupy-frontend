@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import SystemForm from "./SystemForm";
 import { Button, Container, Label } from 'reactstrap';
 import PropTypes from 'prop-types';
@@ -9,16 +9,48 @@ function getIdNumber() {
 }
 
 function SystemsDetailsPage({ token }) {
+    const [item, setItem] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
+    const [isInvalid, setIsInvalid] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
 
     const systemId = getIdNumber();
-    if (isNaN(systemId)) {
+
+    const onSuccess = (json) => {
+        setItem(json)
+        setIsLoading(false);
+    };
+
+    useEffect(() => {
+        fetch('http://localhost:8005/api/v1/systems/' + systemId, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Token ' + token
+            },
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            }
+            setIsInvalid(true);
+        })
+        .then(json => onSuccess(json))
+        .catch(error => {
+            console.error(error);
+            setIsLoading(false);
+        });
+    }, [token, systemId]);
+
+    if (isNaN(systemId) || isInvalid) {
         return (
             <h1>Invalid Page</h1>
         );
     }
 
-    let system = {name: "a name", description: "a description", host: "a host", createdBy: "a createdby value"}; //TODO: get this from a backend API call
+    if (isLoading) {
+        return <div>Loading...</div>;
+    }
 
     const handleDeleteButton = () => {
         //TODO: call backend
@@ -29,9 +61,9 @@ function SystemsDetailsPage({ token }) {
         return <>
             <Container className='row my-3'>
             
-            <Label>Description: {system.description}</Label>
-            <Label>Host: {system.host}</Label>
-            <Label>CreatedBy: {system.createdBy}</Label>
+            <Label>Description: {item.description}</Label>
+            <Label>Host: {item.host}</Label>
+            <p>AdditionalInfo: {item.additional_information}</p>
             <Button className='my-2' onClick={() => setIsEditing(true)}>Edit</Button>
             <Button  className='my-2' onClick={handleDeleteButton}>Delete</Button>
             </Container>
@@ -52,7 +84,7 @@ function SystemsDetailsPage({ token }) {
 
     return (
         <>
-            <h1>{system.name}</h1>
+            <h1>{item.name}</h1>
 
             {isEditing ? editingForm() : displayDetails()}
 
@@ -61,7 +93,7 @@ function SystemsDetailsPage({ token }) {
 };
 
 SystemsDetailsPage.propTypes = {
-  token: PropTypes.string.isRequired
+  token: PropTypes.string
 }
 
 export default SystemsDetailsPage;

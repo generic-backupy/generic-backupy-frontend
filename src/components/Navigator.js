@@ -46,7 +46,7 @@ function Navigator({ token, setToken }) {
 
 Navigator.propTypes = {
   setToken: PropTypes.func.isRequired,
-  token: PropTypes.string.isRequired
+  token: PropTypes.string
 }
 
 export default Navigator;

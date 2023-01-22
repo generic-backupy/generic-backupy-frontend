@@ -12,6 +12,7 @@ function BackupJobForm( { isAdd, token } ) {
     const [info, setInfo] = useState("");
     const [chosenSystemId, setChosenSystemId] = useState("1");
     const [chosenBackupModuleId, setChosenBackupModuleId] = useState("1");
+    const [chosenStorageModuleIds, setChosenStorageModuleIds] = useState([]);
 
     const [systemSelect, setSystemSelect] = useState(null);
     useEffect(() => {
@@ -51,6 +52,26 @@ function BackupJobForm( { isAdd, token } ) {
     }, [token, chosenBackupModuleId]);
 
 
+    const [storageModulesSelect, setStorageModulesSelect] = useState(null);
+    useEffect(() => {
+        fetch('http://localhost:8005/api/v1/storage-modules/', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Token ' + token
+            },
+        })
+        .then(response => response.json())
+        .then(json => {setStorageModulesSelect(<SelectFromList itemLabel="Storage Modules"
+            items={json.results}
+            selectedValueId={chosenStorageModuleIds}
+            setSelectedValueId={setChosenStorageModuleIds}
+            allowMultiple={true}/>);
+        })
+        .catch(error => console.error(error));
+    }, [token, chosenStorageModuleIds]);
+
+
     const handleAddSubmit = (event) => {
         event.preventDefault();
 
@@ -59,7 +80,8 @@ function BackupJobForm( { isAdd, token } ) {
             "description": description,
             "additional_information": info,
             "system": chosenSystemId,
-            "backup_module": chosenBackupModuleId
+            "backup_module": chosenBackupModuleId,
+            "storage_modules": chosenStorageModuleIds
         }
 
         fetch('http://localhost:8005/api/v1/backup-jobs/', {
@@ -73,11 +95,11 @@ function BackupJobForm( { isAdd, token } ) {
         .then(response => {
             if (response.ok) {
                 alert("Successfully added new Backup Job");
+                return response.json()
             }
         })
+        .then(json => console.log(json))
         .catch( error => console.error(error));
-
-
     };
 
 
@@ -116,6 +138,10 @@ function BackupJobForm( { isAdd, token } ) {
 
                 <FormGroup>
                     {backupModuleSelect}
+                </FormGroup>
+
+                <FormGroup>
+                    {storageModulesSelect}
                 </FormGroup>
 
                 <Button type="submit">Submit</Button>

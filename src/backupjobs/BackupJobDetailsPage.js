@@ -18,7 +18,7 @@ function BackupJobDetailsPage({ token }) {
     const backupJobId = getIdNumber();
 
     const onSuccess = (json) => {
-        setItem(json)
+        setItem(json);
         setIsLoading(false);
     };
 
@@ -61,9 +61,24 @@ function BackupJobDetailsPage({ token }) {
     let showEdit = false // Remove this when implementing Editing
 
     const handleCreateBackup = () => {
-        //TODO: call backend DO NOW
-        alert("Implement API call to run the backup job");
-    }
+        fetch('http://localhost:8005/api/v1/backup-jobs/' + backupJobId + '/execute/backup/', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Token ' + token
+            },
+        })
+        .then(response => {
+            console.log(response);
+            if (response.ok) {
+                alert("Successfully started new Backup");
+                return response.json();
+            }
+            return response.body;
+        })
+        .then(data => console.log(data))
+        .catch( error => console.error(error));
+    };
 
     const displayDetails = () => {
         return <>

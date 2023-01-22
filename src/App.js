@@ -39,7 +39,7 @@ function App() {
                     <Route path="login" element={<LoginPage setToken={setToken} />} />
                     <Route path="systems" element={<SystemsListPage token={token} />} />
                     <Route path="systems/*" element={<SystemDetailsPage token={token} />} />
-                    <Route path="add-system" element={<AddSystemPage token={token} />} />
+                    <Route path="add-systems" element={<AddSystemPage token={token} />} />
                     <Route path="backup-jobs" element={<BackupJobsListPage token={token} />} />
                     <Route path="backup-jobs/*" element={<BackupJobDetailsPage token={token} />} />
                     <Route path="add-backup-jobs" element={<AddBackupJobPage token={token} />} />

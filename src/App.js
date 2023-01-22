@@ -36,13 +36,13 @@ function App() {
             <Routes>
                 <Route path="/" element={<Layout token={token} setToken={setToken}/>} >
                     <Route index element={<HomePage />} />
-                    <Route path="login" element={<LoginPage setToken={setToken}/>} />
-                    <Route path="systems" element={<SystemsListPage token={token}/>} />
-                    <Route path="systems/*" element={<SystemDetailsPage token={token}/>} />
-                    <Route path="add-system" element={<AddSystemPage token={token}/>} />
-                    <Route path="backup-jobs" element={<BackupJobsListPage token={token}/>} />
-                    <Route path="backup-jobs/*" element={<BackupJobDetailsPage />} />
-                    <Route path="add-backup-jobs" element={<AddBackupJobPage />} />
+                    <Route path="login" element={<LoginPage setToken={setToken} />} />
+                    <Route path="systems" element={<SystemsListPage token={token} />} />
+                    <Route path="systems/*" element={<SystemDetailsPage token={token} />} />
+                    <Route path="add-system" element={<AddSystemPage token={token} />} />
+                    <Route path="backup-jobs" element={<BackupJobsListPage token={token} />} />
+                    <Route path="backup-jobs/*" element={<BackupJobDetailsPage token={token} />} />
+                    <Route path="add-backup-jobs" element={<AddBackupJobPage token={token} />} />
                     <Route path="backup-modules" element={<BackupModulesListPage />} />
                     <Route path="backup-modules/*" element={<BackupModuleDetailsPage />} />
                     <Route path="add-backup-modules" element={<AddBackupModulePage />} />

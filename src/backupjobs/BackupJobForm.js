@@ -1,50 +1,133 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import SelectFromList from "../components/SelectFromList"
+import PropTypes from 'prop-types';
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 // props expected contents
 // function: handleSubmit
 
-function BackupJobForm(props) {
+function BackupJobForm( { isAdd, token } ) {
+    const [name, setName] = useState("");
+    const [description, setDescription] = useState("");
+    const [info, setInfo] = useState("");
+    const [chosenSystemId, setChosenSystemId] = useState("1");
+    const [chosenBackupModuleId, setChosenBackupModuleId] = useState("1");
 
-    //TODO: get the list of the available systems from the API
-    let systems = ["System 1", "System 2"];
+    const [systemSelect, setSystemSelect] = useState(null);
+    useEffect(() => {
+        fetch('http://localhost:8005/api/v1/systems/', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Token ' + token
+            },
+        })
+        .then(response => response.json())
+        .then(json => {setSystemSelect(<SelectFromList itemLabel="Select"
+            items={json.results}
+            selectedValueId={chosenSystemId}
+            setSelectedValueId={setChosenSystemId}/>);
+        })
+        .catch(error => console.error(error));
+    }, [token, chosenSystemId]);
 
-    //TODO: get the list of the available backupModules from the API
-    let backupModules = ["Backup Module 1", "Backup Module 2"];
+
+    const [backupModuleSelect, setBackupModuleSelect] = useState(null);
+    useEffect(() => {
+        fetch('http://localhost:8005/api/v1/backup-modules/', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Token ' + token
+            },
+        })
+        .then(response => response.json())
+        .then(json => {setBackupModuleSelect(<SelectFromList itemLabel="Backup Modules"
+            items={json.results}
+            selectedValueId={chosenBackupModuleId}
+            setSelectedValueId={setChosenBackupModuleId}/>);
+        })
+        .catch(error => console.error(error));
+    }, [token, chosenBackupModuleId]);
+
+
+    const handleAddSubmit = (event) => {
+        event.preventDefault();
+
+        const newBackupJob = {
+            "name": name,
+            "description": description,
+            "additional_information": info,
+            "system": chosenSystemId,
+            "backup_module": chosenBackupModuleId
+        }
+
+        fetch('http://localhost:8005/api/v1/backup-jobs/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Token ' + token
+            },
+            body: JSON.stringify(newBackupJob)
+        })
+        .then(response => {
+            if (response.ok) {
+                alert("Successfully added new Backup Job");
+            }
+        })
+        .catch( error => console.error(error));
+
+
+    };
+
+
+    const handleUpdateSubmit = () => {
+        //TODO: Call backend (waiting on backend to implement)
+        alert("Implement API call to update this Backup Job");
+    };
 
     return (
         <>
-            <form onSubmit={props.handleSubmit}>
-            <div>
-                <label>
-                    Name:
-                    <input type="text" />
-                </label>
-            </div>
-            <div>
-                <label>
-                    Description:
-                    <textarea />
-                </label>
-            </div>
-            <div>
-                <label>
-                    Additional Info:
-                    <input type="text" />
-                </label>
-            </div>
-            <div>
-                <SelectFromList itemType="System" items={systems} />
-            </div>
-            <div>
-                <SelectFromList itemType="Backup Modules" items={backupModules} />
-            </div>
+            <Form onSubmit={isAdd ? handleAddSubmit : handleUpdateSubmit}>
+                <FormGroup>
+                    <Label className='col-sm-2'>
+                        Name:
+                    </Label>
+                    <Input className='col-sm-10' type="text" onChange={(e) => setName(e.target.value)} />
+                </FormGroup>
 
-            <input type="submit" value="Submit" />
-            </form>
+                <FormGroup>
+                    <Label className='col-sm-2'>
+                        Description:
+                    </Label>
+                    <Input className='col-sm-10' type="textarea" onChange={(e) => setDescription(e.target.value)} />
+                </FormGroup>
+
+                <FormGroup className='form-group'>
+                    <Label>
+                        Additional Information:
+                    </Label>
+                    <Input className='col-sm-10' type="textarea" onChange={(e) => setInfo(e.target.value)} />
+                </FormGroup>
+
+                <FormGroup>
+                    {systemSelect}
+                </FormGroup>
+
+                <FormGroup>
+                    {backupModuleSelect}
+                </FormGroup>
+
+                <Button type="submit">Submit</Button>
+            </Form>
 
         </>
     );
+}
+
+BackupJobForm.propTypes = {
+  isAdd: PropTypes.bool.isRequired,
+  token: PropTypes.string
 }
 
 export default BackupJobForm;

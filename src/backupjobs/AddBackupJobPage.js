@@ -1,20 +1,19 @@
 import React from 'react';
 import BackupJobForm from "./BackupJobForm";
+import PropTypes from 'prop-types';
 
-function AddBackupJobPage() {
-
-    const handleAddSubmit = () => {
-        //TODO: Call backend
-        alert("Implement API call to make a new Backup Job");
-    };
-
+function AddBackupJobPage({ token }) {
 
     return (
         <>
             <h1>Add New Backup Job</h1>
-            <BackupJobForm handleSubmit={handleAddSubmit} />
+            <BackupJobForm isAdd={true} token={token} />
         </>
     );
 };
+
+AddBackupJobPage.propTypes = {
+  token: PropTypes.string
+}
 
 export default AddBackupJobPage;

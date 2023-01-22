@@ -5,14 +5,14 @@ import PropTypes from 'prop-types';
 import LoginPage from '../LoginPage';
 
 function Layout({ token, setToken }) {
+
     return (
         <>
             <Navigator token={token} setToken={setToken}/>
             <br/>
             <hr/>
             <div className="container mt-5 pt-5">
-            {token && <Outlet />}
-            {!token && <LoginPage setToken={setToken}/>}
+            {token ? <Outlet /> : <LoginPage setToken={setToken}/>}
             </div>
         </>
     );
@@ -20,7 +20,7 @@ function Layout({ token, setToken }) {
 
 Layout.propTypes = {
   setToken: PropTypes.func.isRequired,
-  token: PropTypes.string.isRequired
+  token: PropTypes.string
 }
 
 export default Layout;

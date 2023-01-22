@@ -40,7 +40,7 @@ function App() {
                     <Route path="systems" element={<SystemsListPage token={token}/>} />
                     <Route path="systems/*" element={<SystemDetailsPage token={token}/>} />
                     <Route path="add-system" element={<AddSystemPage token={token}/>} />
-                    <Route path="backup-jobs" element={<BackupJobsListPage />} />
+                    <Route path="backup-jobs" element={<BackupJobsListPage token={token}/>} />
                     <Route path="backup-jobs/*" element={<BackupJobDetailsPage />} />
                     <Route path="add-backup-jobs" element={<AddBackupJobPage />} />
                     <Route path="backup-modules" element={<BackupModulesListPage />} />

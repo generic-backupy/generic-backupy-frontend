@@ -3,9 +3,6 @@ import SelectFromList from "../components/SelectFromList"
 import PropTypes from 'prop-types';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
-// props expected contents
-// function: handleSubmit
-
 function BackupJobForm( { isAdd, token } ) {
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");

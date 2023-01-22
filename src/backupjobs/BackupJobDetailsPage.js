@@ -7,7 +7,7 @@ import DetailsPage, { getIdNumber } from '../components/DetailsPage';
 
 
 function BackupJobDetailsPage({ token }) {
-    const handleCreateBackup = () => {
+    function handleCreateBackup() {
         fetch(`http://localhost:8005/api/v1/backup-jobs/${getIdNumber()}/execute/backup/`, {
             method: 'GET',
             headers: {
@@ -27,7 +27,7 @@ function BackupJobDetailsPage({ token }) {
         .catch( error => console.error(error));
     };
 
-    const displayDetails = (backupJob) => {
+    function displayDetails(backupJob) {
         return <>
         <Container className='row my-3'>
             <Button className='my-2' onClick={handleCreateBackup}>Run this Backup Job</Button>
@@ -40,7 +40,7 @@ function BackupJobDetailsPage({ token }) {
                 Storage Modules:
                 <ul>
                     {backupJob.storage_modules.map((storageModule, i) =>
-                        <li key={i}>
+                        <li>
                             <Label>{"Storage Module: "}</Label> <Link to={`/storage-modules/${storageModule}`}>{storageModule}</Link>
                         </li>
                     )}

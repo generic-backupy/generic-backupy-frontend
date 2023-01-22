@@ -6,7 +6,7 @@ import DetailsPage from '../components/DetailsPage';
 
 function SystemsDetailsPage({ token }) {
 
-    const displayDetails = (system) => {
+    function displayDetails(system) {
         return <>
             <Label>Description: {system.description}</Label>
             <Label>Host: {system.host}</Label>

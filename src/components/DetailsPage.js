@@ -50,7 +50,7 @@ function DetailsPage({ token, apiPathSection, displayDetails, formComponent }) {
         return <div>Loading...</div>;
     }
 
-    const handleDeleteButton = () => {
+    function handleDeleteButton() {
         //TODO: call backend (waiting on backend to implement)
         alert("Implement API call to delete this System")
     }
@@ -64,12 +64,14 @@ function DetailsPage({ token, apiPathSection, displayDetails, formComponent }) {
         </>;
     };
 
+    function onEditClick() {setIsEditing(true);}
+
     return (
         <>
             <h1>{item.name}</h1>
             <Container className='row my-3'>
                 {isEditing ? editingForm() : displayDetails(item)}
-                {!isEditing && showEdit && <Button className='my-2' onClick={() => setIsEditing(true)}>Edit</Button>}
+                {!isEditing && showEdit && <Button className='my-2' onClick={onEditClick}>Edit</Button>}
                 {!isEditing && showDelete && <Button className='my-2' onClick={handleDeleteButton}>Delete</Button>}
             </Container>
         </>

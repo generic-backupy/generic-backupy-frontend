@@ -105,6 +105,10 @@ function BackupJobForm( { isAdd, token } ) {
         alert("Implement API call to update this Backup Job");
     };
 
+    function onNameChange(e) {setName(e.target.value)};
+    function onDescriptionChange(e) {setDescription(e.target.value)};
+    function onInfoChange(e) {setInfo(e.target.value)};
+
     return (
         <>
             <Form onSubmit={isAdd ? handleAddSubmit : handleUpdateSubmit}>
@@ -112,21 +116,21 @@ function BackupJobForm( { isAdd, token } ) {
                     <Label className='col-sm-2'>
                         Name:
                     </Label>
-                    <Input className='col-sm-10' type="text" onChange={(e) => setName(e.target.value)} />
+                    <Input className='col-sm-10' type="text" onChange={onNameChange} />
                 </FormGroup>
 
                 <FormGroup>
                     <Label className='col-sm-2'>
                         Description:
                     </Label>
-                    <Input className='col-sm-10' type="textarea" onChange={(e) => setDescription(e.target.value)} />
+                    <Input className='col-sm-10' type="textarea" onChange={onDescriptionChange} />
                 </FormGroup>
 
                 <FormGroup className='form-group'>
                     <Label>
                         Additional Information:
                     </Label>
-                    <Input className='col-sm-10' type="textarea" onChange={(e) => setInfo(e.target.value)} />
+                    <Input className='col-sm-10' type="textarea" onChange={onInfoChange} />
                 </FormGroup>
 
                 <FormGroup>

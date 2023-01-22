@@ -22,7 +22,7 @@ function SystemForm({ isAdd, token }) {
         console.log("pre-fetch");
         console.log(newSystem);
 
-        fetch('http://localhost:8005/api/v1/systems/', { // this currently returns a 500 error
+        fetch('http://localhost:8005/api/v1/systems/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -30,7 +30,7 @@ function SystemForm({ isAdd, token }) {
             },
             body: JSON.stringify(newSystem)
         })
-        .then(response => { // edit these based on the console logs
+        .then(response => {
             if (response.ok) {
                 alert("Successfully added new System");
                 return response.json();
@@ -41,7 +41,7 @@ function SystemForm({ isAdd, token }) {
     };
 
     const handleUpdateSubmit = () => {
-        //TODO: Call backend
+        //TODO: Call backend (waiting on backend to implement Editing)
         alert("Implement API call to update this System");
     };
 

@@ -53,9 +53,11 @@ function SystemsDetailsPage({ token }) {
     }
 
     const handleDeleteButton = () => {
-        //TODO: call backend
+        //TODO: Call backend (waiting on backend to implement Deleting)
         alert("Implement call to delete this System")
     }
+    let showDelete = false; // Remove this when implementing Deleting
+    let showEdit = false // Remove this when implementing Editing
 
     const displayDetails = () => {
         return <>
@@ -64,8 +66,8 @@ function SystemsDetailsPage({ token }) {
             <Label>Description: {item.description}</Label>
             <Label>Host: {item.host}</Label>
             <p>Additional Info: {item.additional_information}</p>
-            <Button className='my-2' onClick={() => setIsEditing(true)}>Edit</Button>
-            <Button className='my-2' onClick={handleDeleteButton}>Delete</Button>
+            {showEdit && <Button className='my-2' onClick={() => setIsEditing(true)}>Edit</Button>}
+            {showDelete && <Button className='my-2' onClick={handleDeleteButton}>Delete</Button>}
             </Container>
         </>;
     };

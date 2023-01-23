@@ -1,22 +1,37 @@
 import React from 'react';
+import { Label } from 'reactstrap';
+import PropTypes from 'prop-types';
 
-// props expected contents
-// string: itemType
-// array of Strings: items
+function SelectFromList({ itemLabel, items, selectedValueId, setSelectedValueId, allowMultiple }) {
+    function handleChange(e) {
+        if (allowMultiple) {
+            setSelectedValueId(Array.from(e.target.selectedOptions, option => option.value));
+        } else {
+            setSelectedValueId(e.target.value);
+        }
+    }
 
-function SelectFromList(props) {
     return (
         <>
-             <label>
-                 {props.itemType}:
-                 <select>
-                     {props.items.map((item) =>
-                         <option>{item}</option>
+             <Label>
+                 {itemLabel}: <br/>
+                 <select multiple={allowMultiple} value={selectedValueId} onChange={handleChange}>
+                    <option disabled key={0}>Choose an option</option>
+                     {items.map((item) =>
+                         <option key={Number(item.id)} value={item.id}>{item.id} - {item.name}</option>
                      )}
                  </select>
-             </label>
+             </Label>
        </>
     );
+}
+
+SelectFromList.propTypes = {
+  itemLabel: PropTypes.string.isRequired,
+  items: PropTypes.array.isRequired,
+  selectedValueId: PropTypes.node.isRequired,
+  setSelectedValueId: PropTypes.func.isRequired,
+  allowMultiple: PropTypes.bool
 }
 
 export default SelectFromList;

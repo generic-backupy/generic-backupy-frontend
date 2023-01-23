@@ -19,9 +19,6 @@ function SystemForm({ isAdd, token }) {
             'category': null
         };
 
-        console.log("pre-fetch");
-        console.log(newSystem);
-
         fetch('http://localhost:8005/api/v1/systems/', {
             method: 'POST',
             headers: {

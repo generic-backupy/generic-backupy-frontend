@@ -1,93 +1,25 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import SystemForm from "./SystemForm";
-import { Button, Container, Label } from 'reactstrap';
+import { Label } from 'reactstrap';
 import PropTypes from 'prop-types';
-
-function getIdNumber() {
-    let idPosition = 1 + window.location.pathname.lastIndexOf("/");
-    return Number(window.location.pathname.substring(idPosition));
-}
+import DetailsPage from '../components/DetailsPage';
 
 function SystemsDetailsPage({ token }) {
-    const [item, setItem] = useState(null);
-    const [isLoading, setIsLoading] = useState(true);
-    const [isInvalid, setIsInvalid] = useState(false);
-    const [isEditing, setIsEditing] = useState(false);
 
-    const systemId = getIdNumber();
-
-    const onSuccess = (json) => {
-        setItem(json)
-        setIsLoading(false);
-    };
-
-    useEffect(() => {
-        fetch('http://localhost:8005/api/v1/systems/' + systemId, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': 'Token ' + token
-            },
-        })
-        .then(response => {
-            if (response.ok) {
-                return response.json();
-            }
-            setIsInvalid(true);
-        })
-        .then(json => onSuccess(json))
-        .catch(error => {
-            console.error(error);
-            setIsLoading(false);
-        });
-    }, [token, systemId]);
-
-    if (isNaN(systemId) || isInvalid) {
-        return (
-            <h1>Invalid Page</h1>
-        );
-    }
-
-    if (isLoading) {
-        return <div>Loading...</div>;
-    }
-
-    const handleDeleteButton = () => {
-        //TODO: Call backend (waiting on backend to implement Deleting)
-        alert("Implement call to delete this System")
-    }
-    let showDelete = false; // Remove this when implementing Deleting
-    let showEdit = false // Remove this when implementing Editing
-
-    const displayDetails = () => {
+    function displayDetails(system) {
         return <>
-            <Container className='row my-3'>
-            
-            <Label>Description: {item.description}</Label>
-            <Label>Host: {item.host}</Label>
-            <p>Additional Info: {item.additional_information}</p>
-            {showEdit && <Button className='my-2' onClick={() => setIsEditing(true)}>Edit</Button>}
-            {showDelete && <Button className='my-2' onClick={handleDeleteButton}>Delete</Button>}
-            </Container>
+            <Label>Description: {system.description}</Label>
+            <Label>Host: {system.host}</Label>
+            <p>Additional Info: {system.additional_information}</p>
         </>;
     };
 
-
-    const editingForm = () => {
-        return <>
-            <button onClick={() => setIsEditing(false)}>Cancel Edit</button>
-            <SystemForm isAdd={false} token={token}/>
-        </>;
-    };
-
-    return (
-        <>
-            <h1>{item.name}</h1>
-
-            {isEditing ? editingForm() : displayDetails()}
-
-        </>
-    );
+    return <DetailsPage
+            token={token}
+            apiPathSection={"systems"}
+            displayDetails={displayDetails}
+            formComponent={<SystemForm isAdd={false} token={token} />}
+           />;
 };
 
 SystemsDetailsPage.propTypes = {

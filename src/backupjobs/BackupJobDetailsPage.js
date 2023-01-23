@@ -1,82 +1,65 @@
-import React, {useState} from 'react';
+import React from 'react';
 import BackupJobForm from "./BackupJobForm";
-import { Button, Container } from 'reactstrap';
+import { Button, Container, Label } from 'reactstrap';
+import PropTypes from 'prop-types';
+import { Link } from "react-router-dom";
+import DetailsPage, { getIdNumber } from '../components/DetailsPage';
 
-function getIdNumber() {
-    let idPosition = 1 + window.location.pathname.lastIndexOf("/");
-    return Number(window.location.pathname.substring(idPosition));
-}
 
-function BackupJobDetailsPage() {
-    const [isEditing, setIsEditing] = useState(false);
+function BackupJobDetailsPage({ token }) {
+    function handleCreateBackup() {
+        fetch(`http://localhost:8005/api/v1/backup-jobs/${getIdNumber()}/execute/backup/`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Token ' + token
+            },
+        })
+        .then(response => {
+            console.log(response);
+            if (response.ok) {
+                alert("Successfully started new Backup");
+                return response.json();
+            }
+            return response.body;
+        })
+        .then(data => console.log(data))
+        .catch( error => console.error(error));
+    };
 
-    const backupJobId = getIdNumber();
-    if (isNaN(backupJobId)) {
-        return (
-            <h1>Invalid Page</h1>
-        );
-    }
-
-    //TODO: get this from a backend API call
-    let backupJob = {name: "a name", description: "a description", additionalInfo: "some additional info",
-     createdBy: "a createdby value", system: "System 1", backupModule: "Backup Module 1",
-     storageModules: ["Storage Module 1", "Storage Module 2"]};
-
-    const handleDeleteButton = () => {
-        //TODO: call backend
-        alert("Implement API call to delete this System")
-    }
-
-    const handleCreateBackup = () => {
-        //TODO: call backend
-        alert("Implement API call to run the backup job");
-    }
-
-    const displayDetails = () => {
+    function displayDetails(backupJob) {
         return <>
-        <Container>
-            <Button onClick={handleCreateBackup}>Run this Backup Job</Button>
-            <p>Description: {backupJob.description}</p>
-            <p>AdditionalInfo: {backupJob.additionalInfo}</p>
-            <p>CreatedBy: {backupJob.createdBy}</p>
-            <p>{"System: " + backupJob.system}</p>
-            <p>{"Backup Module: " + backupJob.backupModule}</p>
+        <Container className='row my-3'>
+            <Button className='my-2' onClick={handleCreateBackup}>Run this Backup Job</Button>
+
+            <Label>Description: {backupJob.description}</Label>
+            <Label>Additional Info: {backupJob.additional_information}</Label>
+            <Label>System: <Link to={`/systems/${backupJob.system}`}>{backupJob.system}</Link></Label>
+            <Label>Backup Module: <Link to={`/backup-modules/${backupJob.backup_module}`}>{backupJob.backup_module}</Link></Label>
             <div>
                 Storage Modules:
                 <ul>
-                    {backupJob.storageModules.map((item, i) =>
-                        <li key={i}>{item}</li>
+                    {backupJob.storage_modules.map((storageModule, i) =>
+                        <li>
+                            <Label>{"Storage Module: "}</Label> <Link to={`/storage-modules/${storageModule}`}>{storageModule}</Link>
+                        </li>
                     )}
                 </ul>
-
             </div>
-
-            <Button onClick={() => setIsEditing(true)}>Edit</Button>
-            <Button onClick={handleDeleteButton}>Delete</Button>
-            </Container>
+        </Container>
         </>;
     };
 
-    const handleUpdateSubmitButton = () => {
-        //TODO: Call backend
-        alert("Implement API call to update this Backup Job");
-    };
-
-    const editingForm = () => {
-        return <>
-            <button onClick={() => setIsEditing(false)}>Cancel Edit</button>
-            <BackupJobForm handleSubmit={handleUpdateSubmitButton} />
-        </>;
-    };
-
-    return (
-        <>
-            <h1>{backupJob.name}</h1>
-
-            {isEditing ? editingForm() : displayDetails()}
-
-        </>
-    );
+    return <DetailsPage
+            token={token}
+            apiPathSection={"backup-jobs"}
+            displayDetails={displayDetails}
+            formComponent={<BackupJobForm isAdd={false} token={token} />}
+           />;
 };
+
+BackupJobDetailsPage.propTypes = {
+  token: PropTypes.string
+}
 
 export default BackupJobDetailsPage;

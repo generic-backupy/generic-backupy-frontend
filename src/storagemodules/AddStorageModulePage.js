@@ -1,20 +1,19 @@
 import React from 'react';
 import StorageModuleForm from "./StorageModuleForm";
+import PropTypes from 'prop-types';
 
-function AddStorageModulePage() {
-
-    const handleAddSubmit = () => {
-        //TODO: Call backend
-        alert("Implement API call to make a new Storage Module");
-    };
-
+function AddStorageModulePage({ token }) {
 
     return (
         <>
             <h1>Add New Storage Module</h1>
-            <StorageModuleForm handleSubmit={handleAddSubmit} />
+            <StorageModuleForm isAdd={true} token={token} />
         </>
     );
 };
+
+AddStorageModulePage.propTypes = {
+  token: PropTypes.string
+}
 
 export default AddStorageModulePage;

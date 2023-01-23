@@ -1,6 +1,6 @@
 import React from 'react';
 import BackupJobForm from "./BackupJobForm";
-import { Button, Container, Label } from 'reactstrap';
+import { Button, Label } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
 import DetailsPage, { getIdNumber } from '../components/DetailsPage';
@@ -29,7 +29,6 @@ function BackupJobDetailsPage({ token }) {
 
     function displayDetails(backupJob) {
         return <>
-        <Container className='row my-3'>
             <Button className='my-2' onClick={handleCreateBackup}>Run this Backup Job</Button>
 
             <Label>Description: {backupJob.description}</Label>
@@ -46,7 +45,6 @@ function BackupJobDetailsPage({ token }) {
                     )}
                 </ul>
             </div>
-        </Container>
         </>;
     };
 

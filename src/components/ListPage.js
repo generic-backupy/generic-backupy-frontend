@@ -3,7 +3,7 @@ import ListOfLinks from "../components/ListOfLinks";
 import { Link } from "react-router-dom";
 import PropTypes from 'prop-types';
 
-function ListPage({ token , pathSection, modelName}) {
+function ListPage({ token , pathSection, modelName, disallowAdd }) {
     const [items, setItems] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
 
@@ -35,7 +35,7 @@ function ListPage({ token , pathSection, modelName}) {
         <>
             <h1>{modelName} List</h1>
             <hr/>
-            <Link className='dark' to={`/add-${pathSection}`}>{`Add a new ${modelName}`}</Link>
+            {!disallowAdd && <Link className='dark' to={`/add-${pathSection}`}>{`Add a new ${modelName}`}</Link>}
             {isLoading ? <div>Loading...</div> : <ListOfLinks items={items} />}
         </>
     );
@@ -44,7 +44,8 @@ function ListPage({ token , pathSection, modelName}) {
 ListPage.propTypes = {
   token: PropTypes.string,
   pathSection: PropTypes.string.isRequired,
-  modelName: PropTypes.string.isRequired
+  modelName: PropTypes.string.isRequired,
+  disallowAdd: PropTypes.bool
 }
 
 export default ListPage;

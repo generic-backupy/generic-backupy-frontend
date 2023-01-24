@@ -15,8 +15,12 @@ function ListPage({ token , pathSection, modelName}) {
                 'Authorization': 'Token ' + token
             },
         })
-        .then(response => response.json())
+        .then(response => response.ok ? response.json() : null)
         .then(json => {
+            if (json == null) {
+                return;
+            }
+
             let temp = [];
             json.results.forEach((element) => {
                 temp.push({displayName: element.name, path: `/${pathSection}/${element.id}`});

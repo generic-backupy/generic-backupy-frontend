@@ -48,9 +48,9 @@ function App() {
                     <Route path="add-backup-modules" element={<AddBackupModulePage token={token} />} />
                     <Route path="backups" element={<BackupsListPage />} />
                     <Route path="backups/*" element={<BackupDetailsPage />} />
-                    <Route path="storage-modules" element={<StorageModulesListPage />} />
-                    <Route path="storage-modules/*" element={<StorageModuleDetailsPage />} />
-                    <Route path="add-storage-modules" element={<AddStorageModulePage />} />
+                    <Route path="storage-modules" element={<StorageModulesListPage token={token} />} />
+                    <Route path="storage-modules/*" element={<StorageModuleDetailsPage token={token} />} />
+                    <Route path="add-storage-modules" element={<AddStorageModulePage token={token} />} />
                     <Route path="backup-executions" element={<BackupExecutionsListPage />} />
                     <Route path="backup-executions/*" element={<BackupExecutionDetailsPage />} />
                     <Route path="storage-executions" element={<StorageExecutionsListPage />} />

@@ -1,58 +1,34 @@
 import React from 'react';
-import { Button, Container, Label } from 'reactstrap';
+import { Label } from 'reactstrap';
+import PropTypes from 'prop-types';
+import DetailsPage from '../components/DetailsPage';
+import { Link } from "react-router-dom";
 
-function getIdNumber() {
-    let idPosition = 1 + window.location.pathname.lastIndexOf("/");
-    return Number(window.location.pathname.substring(idPosition));
-}
+function StorageExecutionsDetailsPage({ token }) {
 
-function StorageExecutionsDetailsPage() {
-    const storageExecutionId = getIdNumber();
-    if (isNaN(storageExecutionId)) {
-        return (
-            <h1>Invalid Page</h1>
-        );
-    }
-
-    //TODO: get real data from a backend API call
-    let storageExecution = {name: "a name", createdBy: "a createdby value", state: "a state value",
-    output: "output 1. lalala", logs: "[timestamp] blah \n[timestamp] balanfjjf \n[timestamp] balanfjjf5",
-    errors: "[timestamp] anfjjf \n[timestamp] fowrio232", backupJob: "Backup Job 1", storageModule: "Storage Module 1",
-    };
-
-    const handleDeleteButton = () => {
-        //TODO: call backend
-        alert("Implement call to delete this Storage Execution")
-    }
-
-    const displayDetails = () => {
+    function displayDetails(storageExecution) {
         return <>
-            <Container className='row my-3'>
-
-            <Label>CreatedBy: {storageExecution.createdBy}</Label>
             <Label>State: {storageExecution.state}</Label>
+            <Label>Ends at: {storageExecution.ends_at}</Label>
             <Label>Output:</Label> <textarea disabled>{storageExecution.output}</textarea>
             <Label>Logs:</Label> <textarea disabled>{storageExecution.logs}</textarea>
             <Label>Errors:</Label> <textarea disabled>{storageExecution.errors}</textarea>
 
-            <Label>{"Backup Job: " + storageExecution.backupJob}</Label>
-            <Label>{"Storage Module: " + storageExecution.storageModule}</Label>
-
-            <Button  className='my-2' onClick={handleDeleteButton}>Delete</Button>
-            </Container>
-
-
+            <Label>Backup Job: <Link to={`/systems/${storageExecution.backup_job}`}>{storageExecution.backup_job}</Link></Label>
+            <Label>Backup Module: <Link to={`/systems/${storageExecution.storage_module}`}>{storageExecution.storage_module}</Link></Label>
+            {storageExecution && <Label>Involved Backup: <Link to={`/systems/${storageExecution.involved_backup}`}>{storageExecution.involved_backup}</Link></Label>}
         </>;
     };
 
-    return (
-        <>
-            <h1>{storageExecution.name}</h1>
-            {displayDetails()}
-
-
-        </>
-    );
+    return <DetailsPage
+            token={token}
+            apiPathSection={"storage-executions"}
+            displayDetails={displayDetails}
+           />;
 };
+
+StorageExecutionsDetailsPage.propTypes = {
+  token: PropTypes.string
+}
 
 export default StorageExecutionsDetailsPage;

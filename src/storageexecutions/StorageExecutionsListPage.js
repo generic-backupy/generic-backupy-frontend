@@ -1,20 +1,13 @@
 import React from 'react';
-import ListOfLinks from "../components/ListOfLinks";
+import PropTypes from 'prop-types';
+import ListPage from '../components/ListPage';
 
-function StorageExecutionsListPage() {
+function StorageExecutionsListPage({token}) {
+    return <ListPage token={token} pathSection={"storage-executions"} modelName={"Storage Execution"} disallowAdd={true}/>;
+}
 
-
-    let storageExecutionsList = []; //TODO: do a fetch call to the backend API to get the list of Storage Executions
-    // this is dummy data that needs to be replaced with real data from the backend.
-    storageExecutionsList.push({displayName: "Storage Execution 1", path: "/storage-executions/1"});
-    storageExecutionsList.push({displayName: "Storage Execution 2", path: "/storage-executions/2"});
-
-    return (
-        <>
-            <h1>Storage Executions List</h1>
-            <ListOfLinks items={storageExecutionsList} />
-        </>
-    );
+StorageExecutionsListPage.propTypes = {
+  token: PropTypes.string
 }
 
 export default StorageExecutionsListPage;

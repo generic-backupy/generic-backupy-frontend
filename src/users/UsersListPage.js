@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ListPage from '../components/ListPage';
 
 function UsersListPage({ token }) {
-    return <ListPage token={token} pathSection={"users"} modelName={"User"} />;
+    return <ListPage token={token} pathSection={"users"} modelName={"User"} disallowAdd={true} />;
 }
 
 UsersListPage.propTypes = {

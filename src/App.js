@@ -24,7 +24,8 @@ import BackupExecutionsListPage from './backupexecutions/BackupExecutionsListPag
 import BackupExecutionDetailsPage from './backupexecutions/BackupExecutionDetailsPage';
 import StorageExecutionsListPage from './storageexecutions/StorageExecutionsListPage';
 import StorageExecutionDetailsPage from './storageexecutions/StorageExecutionDetailsPage';
-
+import UsersListPage from './users/UsersListPage';
+import UserDetailsPage from './users/UserDetailsPage';
 
 
 
@@ -37,25 +38,34 @@ function App() {
                 <Route path="/" element={<Layout token={token} setToken={setToken}/>} >
                     <Route index element={<HomePage />} />
                     <Route path="login" element={<LoginPage setToken={setToken} />} />
+
                     <Route path="systems" element={<SystemsListPage token={token} />} />
                     <Route path="systems/*" element={<SystemDetailsPage token={token} />} />
                     <Route path="add-systems" element={<AddSystemPage token={token} />} />
+
                     <Route path="backup-jobs" element={<BackupJobsListPage token={token} />} />
                     <Route path="backup-jobs/*" element={<BackupJobDetailsPage token={token} />} />
                     <Route path="add-backup-jobs" element={<AddBackupJobPage token={token} />} />
+
                     <Route path="backup-modules" element={<BackupModulesListPage token={token} />} />
                     <Route path="backup-modules/*" element={<BackupModuleDetailsPage token={token} />} />
                     <Route path="add-backup-modules" element={<AddBackupModulePage token={token} />} />
+
                     <Route path="backups" element={<BackupsListPage />} />
                     <Route path="backups/*" element={<BackupDetailsPage />} />
+
                     <Route path="storage-modules" element={<StorageModulesListPage token={token} />} />
                     <Route path="storage-modules/*" element={<StorageModuleDetailsPage token={token} />} />
                     <Route path="add-storage-modules" element={<AddStorageModulePage token={token} />} />
+
                     <Route path="backup-executions" element={<BackupExecutionsListPage token={token} />} />
                     <Route path="backup-executions/*" element={<BackupExecutionDetailsPage token={token} />} />
+
                     <Route path="storage-executions" element={<StorageExecutionsListPage token={token} />} />
                     <Route path="storage-executions/*" element={<StorageExecutionDetailsPage token={token} />} />
 
+                    <Route path="users" element={<UsersListPage token={token} />} />
+                    <Route path="users/*" element={<UserDetailsPage token={token} />} />
 
                 </Route>
             </Routes>

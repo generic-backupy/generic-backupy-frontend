@@ -13,10 +13,10 @@ function HomePage() {
         
         
         
-        {displayName: "Users", path: "/users"}, //TODO: make UsersListPage
+        {displayName: "Users", path: "/users"},
         {displayName: "Secrets", path: "/secrets"}, //TODO: make SecretsListPage
         {displayName: "Parameters", path: "/parameters"}, //TODO: make ParametersListPage
-        {displayName: "Categories", path: "/categories"}, //TODO: make CategoriesListPage
+//        {displayName: "Categories", path: "/categories"}, //TODO: make CategoriesListPage
     ];
 
     return (

@@ -22,10 +22,15 @@ function ListPage({ token , pathSection, modelName, disallowAdd }) {
             }
 
             let temp = [];
-            json.results.forEach((element) => {temp.push({
-                displayName: element.name ? element.name : `${pathSection}-${element.id}`,
-                path: `/${pathSection}/${element.id}`
-            }); });
+            json.results.forEach((element) => {
+                let itemName = element.name ? element.name : null;
+                itemName = itemName ? itemName : element.username;
+                itemName = itemName ? itemName : `${pathSection}-${element.id}`;
+                temp.push({
+                    displayName: itemName,
+                    path: `/${pathSection}/${element.id}`
+                });
+            });
 
             setItems(temp);
             setIsLoading(false);

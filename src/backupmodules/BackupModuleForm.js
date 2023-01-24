@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 function BackupModuleForm({ isAdd, token }) {
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
-    const [fileSystemPath, setFileSystemPath] = useState("");
+    const [file, setFile] = useState("");
 
     const handleUpdateSubmit = () => {
         //TODO: Call backend (waiting on backend to implement Editing)
@@ -15,19 +15,18 @@ function BackupModuleForm({ isAdd, token }) {
     function handleAddSubmit(event) {
         event.preventDefault();
 
-        const newSystem = {
-            'name': name,
-            'description': description,
-            'file_system_path': fileSystemPath,
-        };
+        const formData = new FormData();
+        formData.append("file_uploaded", file);
+        formData.append("name", name);
+        formData.append("description", description);
 
-        fetch('http://localhost:8005/api/v1/backup-modules/', {
+        fetch('http://localhost:8005/api/v1/backup-modules/', { // Need to test after the backend implementation is fixed
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
+                'Content-Type': 'multipart/form-data',
                 'Authorization': 'Token ' + token
             },
-            body: JSON.stringify(newSystem)
+            body: formData
         })
         .then(response => {
             console.log(response)
@@ -43,7 +42,7 @@ function BackupModuleForm({ isAdd, token }) {
 
     function onNameChange(e) {setName(e.target.value)};
     function onDescriptionChange(e) {setDescription(e.target.value)};
-    function onFileSystemPathChange(e) {setFileSystemPath(e.target.value)};
+    function onFileChange(e) {setFile(e.target.files[0])};
 
     return (
         <>
@@ -66,9 +65,9 @@ function BackupModuleForm({ isAdd, token }) {
 
                 <FormGroup className='form-group'>
                     <Label>
-                        File System Path:
+                        File to upload:
                     </Label>
-                    <Input className='col-sm-10' type="text" onChange={onFileSystemPathChange} />
+                    <Input className='col-sm-10' type="file" onChange={onFileChange} />
                 </FormGroup>
 
                 <Button type='submit'>Submit</Button>

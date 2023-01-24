@@ -26,8 +26,9 @@ import StorageExecutionsListPage from './storageexecutions/StorageExecutionsList
 import StorageExecutionDetailsPage from './storageexecutions/StorageExecutionDetailsPage';
 import UsersListPage from './users/UsersListPage';
 import UserDetailsPage from './users/UserDetailsPage';
-
-
+import SecretsListPage from './secrets/SecretsListPage';
+import SecretDetailsPage from './secrets/SecretDetailsPage';
+import AddSecretPage from './secrets/AddSecretPage';
 
 function App() {
   const { token, setToken } = useToken();
@@ -66,6 +67,10 @@ function App() {
 
                     <Route path="users" element={<UsersListPage token={token} />} />
                     <Route path="users/*" element={<UserDetailsPage token={token} />} />
+
+                    <Route path="secrets" element={<SecretsListPage token={token} />} />
+                    <Route path="secrets/*" element={<SecretDetailsPage token={token} />} />
+                    <Route path="add-secrets" element={<AddSecretPage token={token} />} />
 
                 </Route>
             </Routes>

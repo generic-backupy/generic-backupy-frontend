@@ -8,8 +8,8 @@ function HomePage() {
         {displayName: "Backups", path: "/backups", icon: "fa-rotate-left"},
         {displayName: "Backup Modules", path: "/backup-modules", icon: "fa-rotate-left"}, 
         {displayName: "Storage Modules", path: "/storage-modules", icon: "fa-database"}, 
-        {displayName: "Backup Executions", path: "/backup-executions", icon: "fa-rotate-left"}, //TODO: make BackupExecutionsListPage
-        {displayName: "Storage Executions", path: "/storage-executions", icon: "fa-database"}, //TODO: make StorageExecutionsListPage
+        {displayName: "Backup Executions", path: "/backup-executions", icon: "fa-rotate-left"},
+        {displayName: "Storage Executions", path: "/storage-executions", icon: "fa-database"},
         
         
         

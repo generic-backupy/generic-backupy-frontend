@@ -7,6 +7,11 @@ function ParameterForm({ isAdd, token }) {
     const [description, setDescription] = useState("");
     const [paramValues, setParamValues] = useState("");
 
+    const handleUpdateSubmit = () => {
+        //TODO: Call backend (waiting on backend to implement Editing)
+        alert("Implement API call to update this Parameter");
+    };
+
     const handleAddSubmit = (event) => {
         event.preventDefault();
 
@@ -22,8 +27,6 @@ function ParameterForm({ isAdd, token }) {
             'description': description,
             'parameter': parsedParameter,
         };
-
-
 
         fetch('http://localhost:8005/api/v1/parameters/', {
             method: 'POST',
@@ -45,11 +48,6 @@ function ParameterForm({ isAdd, token }) {
 
     };
 
-    const handleUpdateSubmit = () => {
-        //TODO: Call backend (waiting on backend to implement Editing)
-        alert("Implement API call to update this Parameter");
-    };
-
     return (
         <>
         <Container className='container my-5'>
@@ -57,14 +55,14 @@ function ParameterForm({ isAdd, token }) {
             <Form onSubmit={isAdd ? handleAddSubmit : handleUpdateSubmit}>
                 <FormGroup>
                     <Label className='col-sm-2'>
-                        Name:
+                        Parameter Name:
                     </Label>
                     <Input className='col-sm-10' type="text" onChange={(e) => setName(e.target.value)} />
                 </FormGroup>
 
                 <FormGroup>
                     <Label className='col-sm-2'>
-                        Description:
+                        Parameter Description:
                     </Label>
                     <Input className='col-sm-10' type="textarea" onChange={(e) => setDescription(e.target.value)} />
                 </FormGroup>

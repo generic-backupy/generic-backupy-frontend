@@ -13,7 +13,7 @@ function HomePage() {
         {displayName: "Users", path: "/users"},
         {displayName: "Secrets", path: "/secrets"},
         {displayName: "Parameters", path: "/parameters"},
-//        {displayName: "Categories", path: "/categories"}, //TODO: make CategoriesListPage
+        {displayName: "Categories", path: "/categories"},
     ];
 
     return (

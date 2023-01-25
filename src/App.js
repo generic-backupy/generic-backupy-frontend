@@ -34,6 +34,7 @@ import ParameterDetailsPage from './parameters/ParameterDetailsPage';
 import AddParameterPage from './parameters/AddParameterPage';
 import CategoriesListPage from './categories/CategoriesListPage'
 import CategoriesDetailsPage from './categories/CategoriesDetailsPage'
+import AddCategoryPage from './categories/AddCategoryPage';
 
 function App() {
   const { token, setToken } = useToken();
@@ -83,7 +84,7 @@ function App() {
 
                     <Route path="categories" element={<CategoriesListPage token={token} />} />
                     <Route path="categories/*" element={<CategoriesDetailsPage token={token} />} />
-
+                    <Route path="add-categories" element={<AddCategoryPage token={token} />} />
                 </Route>
             </Routes>
         </BrowserRouter>

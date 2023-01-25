@@ -3,7 +3,6 @@ import CategoriesForm from "./CategoriesForm";
 import { Label } from 'reactstrap';
 import PropTypes from 'prop-types';
 import DetailsPage from '../components/DetailsPage';
-import { Link } from "react-router-dom";
 
 function CategoriesDetailsPage({ token }) {
 

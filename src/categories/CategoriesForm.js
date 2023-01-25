@@ -1,11 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button, Form, FormGroup, Label, Input, Container } from 'reactstrap';
 import PropTypes from 'prop-types';
+import SelectFromList from "../components/SelectFromList"
 
 function CategoriesForm({ isAdd, token }) {
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
-    const [parentId, setParentId] = useState(""); // change how this is collected
+
+    const [chosenParentId, setChosenParentId] = useState("1");
+
+    const [parentSelect, setParentSelect] = useState(null);
+    useEffect(() => {
+        fetch('http://localhost:8005/api/v1/categories/', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Token ' + token
+            },
+        })
+        .then(response => response.json())
+        .then(json => {setParentSelect(<SelectFromList itemLabel="Select"
+            items={json.results}
+            selectedValueId={chosenParentId}
+            setSelectedValueId={setChosenParentId}/>);
+        })
+        .catch(error => console.error(error));
+    }, [token, chosenParentId]);
 
     const handleAddSubmit = (event) => {
         event.preventDefault();
@@ -13,7 +33,7 @@ function CategoriesForm({ isAdd, token }) {
         const newCategory = {
             'name': name,
             'description': description,
-            'parent': parentId,
+            'parent': chosenParentId,
         };
 
         fetch('http://localhost:8005/api/v1/categories/', {
@@ -58,11 +78,8 @@ function CategoriesForm({ isAdd, token }) {
                     <Input className='col-sm-10' type="textarea" onChange={(e) => setDescription(e.target.value)} />
                 </FormGroup>
 
-                <FormGroup className='form-group'>
-                    <Label>
-                        Parent Category:
-                    </Label>
-                    <Input className='col-sm-10' type="text" onChange={(e) => setParentId(e.target.value)} />
+                <FormGroup>
+                    {parentSelect}
                 </FormGroup>
 
                 <Button type='submit'>Submit</Button>

@@ -37,13 +37,11 @@ function ParameterForm({ isAdd, token }) {
             body: JSON.stringify(newParameter)
         })
         .then(response => {
-            console.log(response);
             if (response.ok) {
                 alert("Successfully added new Parameter");
                 return response.json();
             }
         })
-        .then(json => console.log(json))
         .catch( error => console.error(error))
 
     };

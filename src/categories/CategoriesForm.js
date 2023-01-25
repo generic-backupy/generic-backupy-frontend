@@ -27,6 +27,11 @@ function CategoriesForm({ isAdd, token }) {
         .catch(error => console.error(error));
     }, [token, chosenParentId]);
 
+    const handleUpdateSubmit = () => {
+        //TODO: Call backend (waiting on backend to implement Editing)
+        alert("Implement API call to update this Category");
+    };
+
     const handleAddSubmit = (event) => {
         event.preventDefault();
 
@@ -54,33 +59,22 @@ function CategoriesForm({ isAdd, token }) {
 
     };
 
-    const handleUpdateSubmit = () => {
-        //TODO: Call backend (waiting on backend to implement Editing)
-        alert("Implement API call to update this Category");
-    };
-
     return (
         <>
         <Container className='container my-5'>
 
             <Form onSubmit={isAdd ? handleAddSubmit : handleUpdateSubmit}>
                 <FormGroup>
-                    <Label className='col-sm-2'>
-                        Name:
-                    </Label>
+                    <Label className='col-sm-2'>Category Name:</Label>
                     <Input className='col-sm-10' type="text" onChange={(e) => setName(e.target.value)} />
                 </FormGroup>
 
                 <FormGroup>
-                    <Label className='col-sm-2'>
-                        Description:
-                    </Label>
+                    <Label className='col-sm-2'>Description:</Label>
                     <Input className='col-sm-10' type="textarea" onChange={(e) => setDescription(e.target.value)} />
                 </FormGroup>
 
-                <FormGroup>
-                    {parentSelect}
-                </FormGroup>
+                <FormGroup>{parentSelect}</FormGroup>
 
                 <Button type='submit'>Submit</Button>
             </Form>

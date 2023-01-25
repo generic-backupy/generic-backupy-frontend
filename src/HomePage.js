@@ -8,15 +8,12 @@ function HomePage() {
         {displayName: "Backups", path: "/backups", icon: "fa-rotate-left"},
         {displayName: "Backup Modules", path: "/backup-modules", icon: "fa-rotate-left"}, 
         {displayName: "Storage Modules", path: "/storage-modules", icon: "fa-database"}, 
-        {displayName: "Backup Executions", path: "/backup-executions", icon: "fa-rotate-left"}, //TODO: make BackupExecutionsListPage
-        {displayName: "Storage Executions", path: "/storage-executions", icon: "fa-database"}, //TODO: make StorageExecutionsListPage
-        
-        
-        
-        {displayName: "Users", path: "/users"}, //TODO: make UsersListPage
-        {displayName: "Secrets", path: "/secrets"}, //TODO: make SecretsListPage
-        {displayName: "Parameters", path: "/parameters"}, //TODO: make ParametersListPage
-        {displayName: "Categories", path: "/categories"}, //TODO: make CategoriesListPage
+        {displayName: "Backup Executions", path: "/backup-executions", icon: "fa-rotate-left"},
+        {displayName: "Storage Executions", path: "/storage-executions", icon: "fa-database"},
+        {displayName: "Users", path: "/users"},
+        {displayName: "Secrets", path: "/secrets"},
+        {displayName: "Parameters", path: "/parameters"},
+        {displayName: "Categories", path: "/categories"},
     ];
 
     return (

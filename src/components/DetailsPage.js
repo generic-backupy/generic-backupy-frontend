@@ -54,8 +54,8 @@ function DetailsPage({ token, apiPathSection, displayDetails, formComponent }) {
         //TODO: call backend (waiting on backend to implement)
         alert("Implement API call to delete this System")
     }
-    let showDelete = false; // Remove this when implementing Deleting
-    let showEdit = true // Remove this when implementing Editing
+    let canDelete = false; // Remove this when implementing Deleting
+    let canEdit = false && (formComponent != null); // Remove this when implementing Editing
 
     const editingForm = () => {
         return <>
@@ -71,8 +71,8 @@ function DetailsPage({ token, apiPathSection, displayDetails, formComponent }) {
             <h1>{item.name}</h1>
             <Container className='row my-3'>
                 {isEditing ? editingForm() : displayDetails(item)}
-                {!isEditing && showEdit && <Button className='my-2' onClick={onEditClick}>Edit</Button>}
-                {!isEditing && showDelete && <Button className='my-2' onClick={handleDeleteButton}>Delete</Button>}
+                {!isEditing && canEdit && <Button className='my-2' onClick={onEditClick}>Edit</Button>}
+                {!isEditing && canDelete && <Button className='my-2' onClick={handleDeleteButton}>Delete</Button>}
             </Container>
         </>
     );
@@ -83,7 +83,7 @@ DetailsPage.propTypes = {
   token: PropTypes.string,
   apiPathSection: PropTypes.string.isRequired,
   displayDetails: PropTypes.func.isRequired,
-  formComponent: PropTypes.object.isRequired
+  formComponent: PropTypes.object
 }
 
 export default DetailsPage;

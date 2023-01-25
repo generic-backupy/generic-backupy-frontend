@@ -4,6 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Action Status
 ![Continuous Integration (CI)](https://github.com/generic-backupy/generic-backupy-frontend/actions/workflows/CI.yml/badge.svg)
+![Continuous Development (CD)](https://github.com/generic-backupy/generic-backupy-frontend/actions/workflows/CD.yml/badge.svg)
 
 ## Running the Production Server locally
 In the project directory, run `npm run build` and then `node server.js`.

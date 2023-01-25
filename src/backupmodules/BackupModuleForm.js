@@ -1,37 +1,13 @@
-import React from 'react';
+import PropTypes from 'prop-types';
+import ModuleUploadForm from '../components/ModuleUploadForm';
 
-// props expected contents
-// function: handleSubmit
+function BackupModuleForm({ isAdd, token }) {
+    return (<ModuleUploadForm isAdd={isAdd} token={token} apiPathSection={"backup-modules"}/>);
+}
 
-function BackupModuleForm(props) {
-
-    return (
-        <>
-            <form onSubmit={props.handleSubmit}>
-            <div>
-                <label>
-                    Name:
-                    <input type="text" />
-                </label>
-            </div>
-            <div>
-                <label>
-                    Description:
-                    <textarea />
-                </label>
-            </div>
-            <div>
-                <label>
-                    Additional Info:
-                    <input type="text" />
-                </label>
-            </div>
-
-            <input type="submit" value="Submit" />
-            </form>
-
-        </>
-    );
+BackupModuleForm.propTypes = {
+  isAdd: PropTypes.bool.isRequired,
+  token: PropTypes.string
 }
 
 export default BackupModuleForm;

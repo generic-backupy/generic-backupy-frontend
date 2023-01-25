@@ -16,7 +16,7 @@ function SecretForm({ isAdd, token }) {
             'secret' : secretValue
         };
 
-        fetch('http://localhost:8005/api/v1/secrets/', {
+        fetch('https://api.demo.backupy.rm-softwares.at/api/v1/secrets/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

@@ -13,7 +13,7 @@ function BackupJobForm( { isAdd, token } ) {
 
     const [systemSelect, setSystemSelect] = useState(null);
     useEffect(() => {
-        fetch('http://localhost:8005/api/v1/systems/', {
+        fetch('https://api.demo.backupy.rm-softwares.at/api/v1/systems/', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -32,7 +32,7 @@ function BackupJobForm( { isAdd, token } ) {
 
     const [backupModuleSelect, setBackupModuleSelect] = useState(null);
     useEffect(() => {
-        fetch('http://localhost:8005/api/v1/backup-modules/', {
+        fetch('https://api.demo.backupy.rm-softwares.at/api/v1/backup-modules/', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -51,7 +51,7 @@ function BackupJobForm( { isAdd, token } ) {
 
     const [storageModulesSelect, setStorageModulesSelect] = useState(null);
     useEffect(() => {
-        fetch('http://localhost:8005/api/v1/storage-modules/', {
+        fetch('https://api.demo.backupy.rm-softwares.at/api/v1/storage-modules/', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -81,7 +81,7 @@ function BackupJobForm( { isAdd, token } ) {
             "storage_modules": chosenStorageModuleIds
         }
 
-        fetch('http://localhost:8005/api/v1/backup-jobs/', {
+        fetch('https://api.demo.backupy.rm-softwares.at/api/v1/backup-jobs/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

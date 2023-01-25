@@ -17,12 +17,13 @@ function DetailsPage({ token, apiPathSection, displayDetails, formComponent }) {
     const currentModelId = getIdNumber();
 
     const onSuccess = (json) => {
+        console.log(json);
         setItem(json);
         setIsLoading(false);
     };
 
     useEffect(() => {
-        fetch(`http://localhost:8005/api/v1/${apiPathSection}/${currentModelId}`, {
+        fetch(`https://api.demo.backupy.rm-softwares.at/api/v1/${apiPathSection}/${currentModelId}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

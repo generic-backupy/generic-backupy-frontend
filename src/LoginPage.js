@@ -9,7 +9,7 @@ class LoginPage extends Component {
   }
 
   login = event => {
-    fetch('http://localhost:8005/api/v1/auth/', {
+    fetch('https://api.demo.backupy.rm-softwares.at/api/v1/auth/', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(this.state.credentials)

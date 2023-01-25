@@ -11,7 +11,7 @@ function CategoriesForm({ isAdd, token }) {
 
     const [parentSelect, setParentSelect] = useState(null);
     useEffect(() => {
-        fetch('http://localhost:8005/api/v1/categories/', {
+        fetch('https://api.demo.backupy.rm-softwares.at/api/v1/categories/', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -41,7 +41,7 @@ function CategoriesForm({ isAdd, token }) {
             'parent': chosenParentId,
         };
 
-        fetch('http://localhost:8005/api/v1/categories/', {
+        fetch('https://api.demo.backupy.rm-softwares.at/api/v1/categories/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

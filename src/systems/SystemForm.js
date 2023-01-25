@@ -19,7 +19,7 @@ function SystemForm({ isAdd, token }) {
             'category': null
         };
 
-        fetch('http://localhost:8005/api/v1/systems/', {
+        fetch('https://api.demo.backupy.rm-softwares.at/api/v1/systems/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

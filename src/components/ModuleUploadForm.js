@@ -16,7 +16,7 @@ function BackupModuleForm({ isAdd, token, apiPathSection }) {
         const formData = new FormData();
         formData.append("file_uploaded", file);
 
-        fetch(`http://localhost:8005/api/v1/${apiPathSection}/`, {
+        fetch(`https://api.demo.backupy.rm-softwares.at/api/v1/${apiPathSection}/`, {
             method: 'POST',
             headers: {
                 'Authorization': 'Token ' + token

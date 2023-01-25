@@ -28,7 +28,7 @@ function ParameterForm({ isAdd, token }) {
             'parameter': parsedParameter,
         };
 
-        fetch('http://localhost:8005/api/v1/parameters/', {
+        fetch('https://api.demo.backupy.rm-softwares.at/api/v1/parameters/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

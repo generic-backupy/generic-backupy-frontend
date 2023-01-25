@@ -29,6 +29,9 @@ import UserDetailsPage from './users/UserDetailsPage';
 import SecretsListPage from './secrets/SecretsListPage';
 import SecretDetailsPage from './secrets/SecretDetailsPage';
 import AddSecretPage from './secrets/AddSecretPage';
+import ParametersListPage from './parameters/ParametersListPage';
+import ParameterDetailsPage from './parameters/ParameterDetailsPage';
+import AddParameterPage from './parameters/AddParameterPage';
 
 function App() {
   const { token, setToken } = useToken();
@@ -71,6 +74,10 @@ function App() {
                     <Route path="secrets" element={<SecretsListPage token={token} />} />
                     <Route path="secrets/*" element={<SecretDetailsPage token={token} />} />
                     <Route path="add-secrets" element={<AddSecretPage token={token} />} />
+
+                    <Route path="parameters" element={<ParametersListPage token={token} />} />
+                    <Route path="parameters/*" element={<ParameterDetailsPage token={token} />} />
+                    <Route path="add-parameters" element={<AddParameterPage token={token} />} />
 
                 </Route>
             </Routes>

@@ -12,7 +12,7 @@ function HomePage() {
         {displayName: "Storage Executions", path: "/storage-executions", icon: "fa-database"},
         {displayName: "Users", path: "/users"},
         {displayName: "Secrets", path: "/secrets"},
-        {displayName: "Parameters", path: "/parameters"}, //TODO: make ParametersListPage
+        {displayName: "Parameters", path: "/parameters"},
 //        {displayName: "Categories", path: "/categories"}, //TODO: make CategoriesListPage
     ];
 

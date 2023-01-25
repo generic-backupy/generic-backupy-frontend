@@ -10,7 +10,6 @@ function BackupModuleDetailsPage({ token }) {
     function displayDetails(backupModule) {
         return <>
             <Label>Description: {backupModule.description}</Label>
-            <Label>File System Path: {backupModule.file_system_path}</Label>
         </>;
     };
 

@@ -8,8 +8,7 @@ function StorageModuleDetailsPage({ token }) {
 
     function displayDetails(storageModule) {
         return <>
-            <Label>Description: {storageModule.description}</Label>
-            <Label>File System Path: {storageModule.file_system_path}</Label>
+            <Label>Description: {storageModule.description == null ? "None" : storageModule.description}</Label>
         </>;
     };
 

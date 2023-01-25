@@ -8,7 +8,7 @@ import DetailsPage, { getIdNumber } from '../components/DetailsPage';
 
 function BackupJobDetailsPage({ token }) {
     function handleCreateBackup() {
-        fetch(`http://localhost:8005/api/v1/backup-jobs/${getIdNumber()}/execute/backup/`, {
+        fetch(`https://api.demo.backupy.rm-softwares.at/api/v1/backup-jobs/${getIdNumber()}/execute/backup/`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

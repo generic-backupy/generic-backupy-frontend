@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 function BackupsDetailsPage({ token }) {
 
     function handleRestoreButton() {
-        fetch(`http://localhost:8005/api/v1/backups/${getIdNumber()}/execute/restore/`, {
+        fetch(`https://api.demo.backupy.rm-softwares.at/api/v1/backups/${getIdNumber()}/execute/restore/`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

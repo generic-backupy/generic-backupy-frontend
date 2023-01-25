@@ -35,16 +35,18 @@ function BackupJobDetailsPage({ token }) {
             <Label>Additional Info: {backupJob.additional_information}</Label>
             <Label>System: <Link to={`/systems/${backupJob.system}`}>{backupJob.system}</Link></Label>
             <Label>Backup Module: <Link to={`/backup-modules/${backupJob.backup_module}`}>{backupJob.backup_module}</Link></Label>
-            <div>
+
+            {(!backupJob.storage_modules || backupJob.storage_modules == undefined) }<Label>{"Storage Module: None"}</Label>
+            {backupJob.storage_modules && <div>
                 Storage Modules:
                 <ul>
-                    {backupJob.storage_modules.map((storageModule, i) =>
-                        <li>
+                    {backupJob.storage_modules.map((storageModule, i) => {
+                        return <li>
                             <Label>{"Storage Module: "}</Label> <Link to={`/storage-modules/${storageModule}`}>{storageModule}</Link>
                         </li>
-                    )}
+                    })}
                 </ul>
-            </div>
+            </div>}
         </>;
     };
 

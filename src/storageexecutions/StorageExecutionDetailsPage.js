@@ -16,7 +16,11 @@ function StorageExecutionsDetailsPage({ token }) {
 
             <Label>Backup Job: <Link to={`/systems/${storageExecution.backup_job}`}>{storageExecution.backup_job}</Link></Label>
             <Label>Backup Module: <Link to={`/systems/${storageExecution.storage_module}`}>{storageExecution.storage_module}</Link></Label>
-            {storageExecution && <Label>Involved Backup: <Link to={`/systems/${storageExecution.involved_backup}`}>{storageExecution.involved_backup}</Link></Label>}
+            <Label>Involved Backup:
+                {storageExecution.involved_backup == null ?
+                " None" :
+                <Link to={`/systems/${storageExecution.involved_backup}`}>{storageExecution.involved_backup}</Link>}
+            </Label>
         </>;
     };
 

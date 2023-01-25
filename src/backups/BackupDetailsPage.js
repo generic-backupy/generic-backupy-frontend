@@ -35,7 +35,7 @@ function BackupsDetailsPage({ token }) {
 
             <Label>Backup Module: <Link to={`/backup-modules/${backup.backup_module}`}>{backup.backup_module}</Link></Label>
 
-            <Label>Storage Module: {backup.backup_job_storage_module == null ? "null" : <Link to={`/storage-modules/${backup.backup_job_storage_module}`}>{backup.backup_job_storage_module}</Link>}</Label>
+            <Label>Storage Module: {backup.backup_job_storage_module == null ? "None" : <Link to={`/storage-modules/${backup.backup_job_storage_module}`}>{backup.backup_job_storage_module}</Link>}</Label>
 
             <Label>Backup Execution: <Link to={`/backup-executions/${backup.backup_execution}`}>{backup.backup_execution}</Link></Label>
 

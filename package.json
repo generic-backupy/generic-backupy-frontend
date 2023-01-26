@@ -7,20 +7,25 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "bootstrap": "^5.2.3",
+    "chai": "^4.3.7",
+    "chromedriver": "^109.0.0",
     "express": "^4.18.2",
     "font-awesome": "^4.7.0",
+    "geckodriver": "^3.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.5",
     "react-scripts": "5.0.1",
     "react-test-renderer": "^18.2.0",
     "reactstrap": "^9.1.5",
+    "selenium-webdriver": "^4.8.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "selenium": "mocha 'src/selenium/' --timeout 5000",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

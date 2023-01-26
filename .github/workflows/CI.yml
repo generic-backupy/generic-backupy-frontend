@@ -53,6 +53,9 @@ jobs:
     
     # - name: Upload coverage to Codecov
     #  uses: codecov/codecov-action@v1
+
+    - name: Run the selenium tests
+      run: npm run selenium
     
     - name: Build
       run: npm run build --if-present

@@ -29,7 +29,7 @@ function Navigator({ token, setToken }) {
                     <Navbar className="ml-auto py-3 navigator-bar" dark expand="xl" fixed="top">
                         <div className="d-inline-flex container">
                         <NavbarBrand className="nav-header" href="/">
-                        <h4><b>Generic Backupy </b></h4>
+                        <h4><b name='homeNav'>Generic Backupy </b></h4>
                         </NavbarBrand>
 
                         <Collapse navbar  className="justify-content-end" >

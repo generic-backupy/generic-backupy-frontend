@@ -2,7 +2,9 @@
 
 exports[`HomePage Render homepage 1`] = `
 Array [
-  <h1>
+  <h1
+    name="homepageHeader"
+  >
     Admin Dashboard
   </h1>,
   <div

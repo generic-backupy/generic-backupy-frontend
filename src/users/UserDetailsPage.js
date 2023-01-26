@@ -10,7 +10,7 @@ function UserDetailsPage({ token }) {
             <Label>Username: {user.username}</Label>
             <Label>Email: {user.email}</Label>
             <Label>Date Joined: {user.date_joined}</Label>
-            <Label>Email Verified: {user.email_verified ? 'True' : 'False'}</Label>
+            <Label name='verified' >Email Verified: {user.email_verified ? 'True' : 'False'}</Label>
         </>;
     };
 

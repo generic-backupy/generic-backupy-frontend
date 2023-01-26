@@ -1,9 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { MemoryRouter } from 'react-router-dom';
-import App from '../App';
-import LoginPage from '../LoginPage'
-import useToken from '../hooks/useToken'
-
+import App from '../App'
 
 describe('App', () => {
   test('renders LoginPage when not logged in', () => {

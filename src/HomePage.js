@@ -12,10 +12,10 @@ function HomePage() {
         {displayName: "Storage Modules", path: "/storage-modules", icon: "fa-database"}, 
         {displayName: "Backup Executions", path: "/backup-executions", icon: "fa-rotate-left"},
         {displayName: "Storage Executions", path: "/storage-executions", icon: "fa-database"},
-        {displayName: "Users", path: "/users"},
-        {displayName: "Secrets", path: "/secrets"},
-        {displayName: "Parameters", path: "/parameters"},
-        {displayName: "Categories", path: "/categories"},
+        {displayName: "Users", path: "/users", icon: "fa-user"},
+        {displayName: "Secrets", path: "/secrets", icon: "fa-key"},
+        {displayName: "Parameters", path: "/parameters", icon: "fa-sliders"},
+        {displayName: "Categories", path: "/categories", icon: "fa-bars"},
     ];
 
     return (

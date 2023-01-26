@@ -72,4 +72,5 @@ jobs:
         run: ssh -o StrictHostKeyChecking=no -i ./key root@68.183.219.99 "
           docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }} &&
           docker ps -aq | xargs docker stop | xargs docker rm &&
+          docker images -aq | xargs docker rmi &&
           docker run -d -p 9000:9000 jmahal0/generic-backupy-frontend:1"

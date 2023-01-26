@@ -34,7 +34,7 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 ### `npm run selenium`
 
-Launches the Selenium test runs.\
+Launches the Selenium test runs.
 
 ### `npm run build`
 

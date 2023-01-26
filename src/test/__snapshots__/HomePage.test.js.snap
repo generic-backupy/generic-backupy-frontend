@@ -1,0 +1,626 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomePage Render homepage 1`] = `
+Array [
+  <h1>
+    Admin Dashboard
+  </h1>,
+  <div
+    className="container-fluid mt-3"
+  >
+    <div
+      className="row"
+    >
+      <ul
+        className="listoflinks"
+      >
+        <li
+          className="link"
+        >
+          <div
+            className="col-md-3 col-sm-4"
+          >
+            <div
+              className="card border-5 m-2"
+              style={
+                Object {
+                  "height": "9rem",
+                  "width": "17rem",
+                }
+              }
+            >
+              <a
+                href="/systems"
+              >
+                <div
+                  className="card-img-top"
+                  style={
+                    Object {
+                      "height": "4rem",
+                    }
+                  }
+                >
+                  <center
+                    className="my-1"
+                  >
+                    <i
+                      className="fa fa-gear"
+                      style={
+                        Object {
+                          "color": "#222d35",
+                          "fontSize": "3.5rem",
+                        }
+                      }
+                    />
+                     
+                  </center>
+                </div>
+                <div
+                  className="card-body"
+                >
+                  <h4
+                    className="card-title"
+                  >
+                    Systems
+                     
+                  </h4>
+                </div>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li
+          className="link"
+        >
+          <div
+            className="col-md-3 col-sm-4"
+          >
+            <div
+              className="card border-5 m-2"
+              style={
+                Object {
+                  "height": "9rem",
+                  "width": "17rem",
+                }
+              }
+            >
+              <a
+                href="/backup-jobs"
+              >
+                <div
+                  className="card-img-top"
+                  style={
+                    Object {
+                      "height": "4rem",
+                    }
+                  }
+                >
+                  <center
+                    className="my-1"
+                  >
+                    <i
+                      className="fa fa-thin fa-rotate-left"
+                      style={
+                        Object {
+                          "color": "#222d35",
+                          "fontSize": "3.5rem",
+                        }
+                      }
+                    />
+                     
+                  </center>
+                </div>
+                <div
+                  className="card-body"
+                >
+                  <h4
+                    className="card-title"
+                  >
+                    Backup Jobs
+                     
+                  </h4>
+                </div>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li
+          className="link"
+        >
+          <div
+            className="col-md-3 col-sm-4"
+          >
+            <div
+              className="card border-5 m-2"
+              style={
+                Object {
+                  "height": "9rem",
+                  "width": "17rem",
+                }
+              }
+            >
+              <a
+                href="/backups"
+              >
+                <div
+                  className="card-img-top"
+                  style={
+                    Object {
+                      "height": "4rem",
+                    }
+                  }
+                >
+                  <center
+                    className="my-1"
+                  >
+                    <i
+                      className="fa fa-rotate-left"
+                      style={
+                        Object {
+                          "color": "#222d35",
+                          "fontSize": "3.5rem",
+                        }
+                      }
+                    />
+                     
+                  </center>
+                </div>
+                <div
+                  className="card-body"
+                >
+                  <h4
+                    className="card-title"
+                  >
+                    Backups
+                     
+                  </h4>
+                </div>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li
+          className="link"
+        >
+          <div
+            className="col-md-3 col-sm-4"
+          >
+            <div
+              className="card border-5 m-2"
+              style={
+                Object {
+                  "height": "9rem",
+                  "width": "17rem",
+                }
+              }
+            >
+              <a
+                href="/backup-modules"
+              >
+                <div
+                  className="card-img-top"
+                  style={
+                    Object {
+                      "height": "4rem",
+                    }
+                  }
+                >
+                  <center
+                    className="my-1"
+                  >
+                    <i
+                      className="fa fa-rotate-left"
+                      style={
+                        Object {
+                          "color": "#222d35",
+                          "fontSize": "3.5rem",
+                        }
+                      }
+                    />
+                     
+                  </center>
+                </div>
+                <div
+                  className="card-body"
+                >
+                  <h4
+                    className="card-title"
+                  >
+                    Backup Modules
+                     
+                  </h4>
+                </div>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li
+          className="link"
+        >
+          <div
+            className="col-md-3 col-sm-4"
+          >
+            <div
+              className="card border-5 m-2"
+              style={
+                Object {
+                  "height": "9rem",
+                  "width": "17rem",
+                }
+              }
+            >
+              <a
+                href="/storage-modules"
+              >
+                <div
+                  className="card-img-top"
+                  style={
+                    Object {
+                      "height": "4rem",
+                    }
+                  }
+                >
+                  <center
+                    className="my-1"
+                  >
+                    <i
+                      className="fa fa-database"
+                      style={
+                        Object {
+                          "color": "#222d35",
+                          "fontSize": "3.5rem",
+                        }
+                      }
+                    />
+                     
+                  </center>
+                </div>
+                <div
+                  className="card-body"
+                >
+                  <h4
+                    className="card-title"
+                  >
+                    Storage Modules
+                     
+                  </h4>
+                </div>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li
+          className="link"
+        >
+          <div
+            className="col-md-3 col-sm-4"
+          >
+            <div
+              className="card border-5 m-2"
+              style={
+                Object {
+                  "height": "9rem",
+                  "width": "17rem",
+                }
+              }
+            >
+              <a
+                href="/backup-executions"
+              >
+                <div
+                  className="card-img-top"
+                  style={
+                    Object {
+                      "height": "4rem",
+                    }
+                  }
+                >
+                  <center
+                    className="my-1"
+                  >
+                    <i
+                      className="fa fa-rotate-left"
+                      style={
+                        Object {
+                          "color": "#222d35",
+                          "fontSize": "3.5rem",
+                        }
+                      }
+                    />
+                     
+                  </center>
+                </div>
+                <div
+                  className="card-body"
+                >
+                  <h4
+                    className="card-title"
+                  >
+                    Backup Executions
+                     
+                  </h4>
+                </div>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li
+          className="link"
+        >
+          <div
+            className="col-md-3 col-sm-4"
+          >
+            <div
+              className="card border-5 m-2"
+              style={
+                Object {
+                  "height": "9rem",
+                  "width": "17rem",
+                }
+              }
+            >
+              <a
+                href="/storage-executions"
+              >
+                <div
+                  className="card-img-top"
+                  style={
+                    Object {
+                      "height": "4rem",
+                    }
+                  }
+                >
+                  <center
+                    className="my-1"
+                  >
+                    <i
+                      className="fa fa-database"
+                      style={
+                        Object {
+                          "color": "#222d35",
+                          "fontSize": "3.5rem",
+                        }
+                      }
+                    />
+                     
+                  </center>
+                </div>
+                <div
+                  className="card-body"
+                >
+                  <h4
+                    className="card-title"
+                  >
+                    Storage Executions
+                     
+                  </h4>
+                </div>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li
+          className="link"
+        >
+          <div
+            className="col-md-3 col-sm-4"
+          >
+            <div
+              className="card border-5 m-2"
+              style={
+                Object {
+                  "height": "9rem",
+                  "width": "17rem",
+                }
+              }
+            >
+              <a
+                href="/users"
+              >
+                <div
+                  className="card-img-top"
+                  style={
+                    Object {
+                      "height": "4rem",
+                    }
+                  }
+                >
+                  <center
+                    className="my-1"
+                  >
+                    <i
+                      className="fa undefined"
+                      style={
+                        Object {
+                          "color": "#222d35",
+                          "fontSize": "3.5rem",
+                        }
+                      }
+                    />
+                     
+                  </center>
+                </div>
+                <div
+                  className="card-body"
+                >
+                  <h4
+                    className="card-title"
+                  >
+                    Users
+                     
+                  </h4>
+                </div>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li
+          className="link"
+        >
+          <div
+            className="col-md-3 col-sm-4"
+          >
+            <div
+              className="card border-5 m-2"
+              style={
+                Object {
+                  "height": "9rem",
+                  "width": "17rem",
+                }
+              }
+            >
+              <a
+                href="/secrets"
+              >
+                <div
+                  className="card-img-top"
+                  style={
+                    Object {
+                      "height": "4rem",
+                    }
+                  }
+                >
+                  <center
+                    className="my-1"
+                  >
+                    <i
+                      className="fa undefined"
+                      style={
+                        Object {
+                          "color": "#222d35",
+                          "fontSize": "3.5rem",
+                        }
+                      }
+                    />
+                     
+                  </center>
+                </div>
+                <div
+                  className="card-body"
+                >
+                  <h4
+                    className="card-title"
+                  >
+                    Secrets
+                     
+                  </h4>
+                </div>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li
+          className="link"
+        >
+          <div
+            className="col-md-3 col-sm-4"
+          >
+            <div
+              className="card border-5 m-2"
+              style={
+                Object {
+                  "height": "9rem",
+                  "width": "17rem",
+                }
+              }
+            >
+              <a
+                href="/parameters"
+              >
+                <div
+                  className="card-img-top"
+                  style={
+                    Object {
+                      "height": "4rem",
+                    }
+                  }
+                >
+                  <center
+                    className="my-1"
+                  >
+                    <i
+                      className="fa undefined"
+                      style={
+                        Object {
+                          "color": "#222d35",
+                          "fontSize": "3.5rem",
+                        }
+                      }
+                    />
+                     
+                  </center>
+                </div>
+                <div
+                  className="card-body"
+                >
+                  <h4
+                    className="card-title"
+                  >
+                    Parameters
+                     
+                  </h4>
+                </div>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li
+          className="link"
+        >
+          <div
+            className="col-md-3 col-sm-4"
+          >
+            <div
+              className="card border-5 m-2"
+              style={
+                Object {
+                  "height": "9rem",
+                  "width": "17rem",
+                }
+              }
+            >
+              <a
+                href="/categories"
+              >
+                <div
+                  className="card-img-top"
+                  style={
+                    Object {
+                      "height": "4rem",
+                    }
+                  }
+                >
+                  <center
+                    className="my-1"
+                  >
+                    <i
+                      className="fa undefined"
+                      style={
+                        Object {
+                          "color": "#222d35",
+                          "fontSize": "3.5rem",
+                        }
+                      }
+                    />
+                     
+                  </center>
+                </div>
+                <div
+                  className="card-body"
+                >
+                  <h4
+                    className="card-title"
+                  >
+                    Categories
+                     
+                  </h4>
+                </div>
+              </a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>,
+]
+`;

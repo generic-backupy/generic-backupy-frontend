@@ -10,7 +10,7 @@ describe("Complete login", () =>{
             await driver.get("http://localhost:3000");
 
             //enter username
-            await driver.findElement(By.name("username")).sendKeys("demo2");
+            await driver.findElement(By.name("username")).sendKeys("demo");
 
             //enter password
             await driver.findElement(By.name("password")).sendKeys("mPK_sv9Sku");

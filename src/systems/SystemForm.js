@@ -51,27 +51,27 @@ function SystemForm({ isAdd, token }) {
                 <Label className='col-sm-2'>
                     Name:
                 </Label>
-                <Input className='col-sm-10' type="text" onChange={(e) => setName(e.target.value)} />
+                <Input className='col-sm-10' type="text" name='nameInput' onChange={(e) => setName(e.target.value)} />
             </FormGroup>
             <FormGroup>
                 <Label className='col-sm-2'>
                     Description:
                 </Label>
-                <Input className='col-sm-10' type="textarea" onChange={(e) => setDescription(e.target.value)} />
+                <Input className='col-sm-10' type="textarea" name='descriptionInput' onChange={(e) => setDescription(e.target.value)} />
             </FormGroup>
             <FormGroup className='form-group'>
                 <Label>
                     Host:
                 </Label>
-                <Input className='col-sm-10' type="text" onChange={(e) => setHost(e.target.value)} />
+                <Input className='col-sm-10' type="text" name='hostInput' onChange={(e) => setHost(e.target.value)} />
             </FormGroup>
             <FormGroup className='form-group'>
                 <Label>
                     Additional Information:
                 </Label>
-                <Input className='col-sm-10' type="textarea" onChange={(e) => setInfo(e.target.value)} />
+                <Input className='col-sm-10' type="textarea" name='informationInput' onChange={(e) => setInfo(e.target.value)} />
             </FormGroup>
-            <Button type='submit'>Submit</Button>
+            <Button type='submit' name='submitButton' >Submit</Button>
             </Form>
 
         </Container>

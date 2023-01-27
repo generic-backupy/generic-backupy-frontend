@@ -63,7 +63,7 @@ class LoginPage extends Component {
         </FormGroup>
 
         <br/>
-        <Button onClick={this.login}>Login</Button>
+        <Button name="loginButton" onClick={this.login}>Login</Button>
       
         </Form>
       </div>

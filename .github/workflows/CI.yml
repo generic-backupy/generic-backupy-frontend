@@ -53,6 +53,13 @@ jobs:
     
     # - name: Upload coverage to Codecov
     #  uses: codecov/codecov-action@v1
+
+    - name: Setup Firefox
+      uses: browser-actions/setup-firefox@v1.0.0
+
+
+    #- name: Run the selenium tests
+    #  run: npm run selenium
     
     - name: Build
       run: npm run build --if-present
